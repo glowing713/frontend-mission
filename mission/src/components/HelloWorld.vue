@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <input type="text" class="str_input">
+    <button class="rotate_btn">rotate</button>
   </div>
 </template>
 
