@@ -1,21 +1,23 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <input type="text" class="str_input" v-model="strInput">
+    <base-input v-model="inputText"/>
     <button class="rotate_btn">rotate</button>
-    <p class="str_print">입력된 문자열: {{ strInput }}</p>
+    <p class="str_print">입력된 문자열: {{ inputText }}</p>
   </div>
 </template>
 
 <script>
+import BaseInput from './BaseInput.vue';
+
 export default {
-  name: 'HelloWorld',
+  components: { BaseInput },
   props: {
     msg: String,
   },
   data() {
     return {
-      strInput: '',
+      inputText: '',
     };
   },
 };
