@@ -2,8 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <base-input v-model="inputText"/>
-    <button class="rotate_btn">rotate</button>
-    <p class="str_print">{{ inputText }}</p>
+    <button class="rotate-btn">rotate</button>
+    <p class="str-print">{{ inputText }}</p>
   </div>
 </template>
 
