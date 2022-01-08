@@ -24,4 +24,27 @@ describe('HelloWorld.vue', () => {
     await textInput.setValue('이건 한글 버전의 테스트 케이스');
     expect(textPrint.text()).toBe('이건 한글 버전의 테스트 케이스');
   });
+
+  it('3번 요구사항, 버튼을 누르면 입력/출력 문자열이 동시에 왼쪽으로 한칸씩 이동한다', async () => {
+    await textInput.setValue('banana');
+    await button.trigger('click');
+    setTimeout(() => {
+      expect(textInput.text()).toBe('ananab');
+      expect(textPrint.text()).toBe('ananab');
+    }, 2000);
+
+    await textInput.setValue('12345');
+    await button.trigger('click');
+    setTimeout(() => {
+      expect(textInput.text()).toBe('23451');
+      expect(textPrint.text()).toBe('23451');
+    }, 2000);
+
+    await textInput.setValue('안녕하세요');
+    await button.trigger('click');
+    setTimeout(() => {
+      expect(textInput.text()).toBe('녕하세요안');
+      expect(textPrint.text()).toBe('녕하세요안');
+    }, 2000);
+  });
 });
