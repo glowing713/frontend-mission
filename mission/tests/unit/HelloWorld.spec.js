@@ -21,7 +21,15 @@ describe('HelloWorld.vue', () => {
     expect(textPrint.exists()).toBe(true);
 
     await textInput.setValue('hello');
+    expect(textPrint.text()).toBe('hello');
 
-    expect(textPrint.text()).toBe(`입력된 문자열: ${'hello'}`);
+    await textInput.setValue('hellooo');
+    expect(textPrint.text()).toBe('hellooo');
+
+    await textInput.setValue('123123112');
+    expect(textPrint.text()).toBe('123123112');
+
+    await textInput.setValue('이건 한글 버전의 테스트 케이스');
+    expect(textPrint.text()).toBe('이건 한글 버전의 테스트 케이스');
   });
 });

@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <base-input v-model="inputText"/>
     <button class="rotate_btn">rotate</button>
-    <p class="str_print">입력된 문자열: {{ inputText }}</p>
+    <p class="str_print">{{ inputText }}</p>
   </div>
 </template>
 
