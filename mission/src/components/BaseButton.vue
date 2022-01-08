@@ -13,6 +13,8 @@ export default {
     onClick() {
       if (this.func === 'rotate') {
         this.$emit('rotate'); // 문자열 회전하는 버튼
+      } else if (this.func === 'alert') {
+        this.$emit('alert'); // 알림 창 띄우는 버튼
       }
     },
   },
