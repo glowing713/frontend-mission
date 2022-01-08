@@ -2,16 +2,17 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <base-input v-model="inputText"/>
-    <button class="rotate-btn" @click="rotateText">rotate</button>
+    <base-button name="rotate" func="rotate" @rotate="rotateText"/>
     <p class="str-print">{{ inputText }}</p>
   </div>
 </template>
 
 <script>
 import BaseInput from './BaseInput.vue';
+import BaseButton from './BaseButton.vue';
 
 export default {
-  components: { BaseInput },
+  components: { BaseInput, BaseButton },
   props: {
     msg: String,
   },
