@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <base-input v-model="inputText"/>
-    <base-button name="rotate" func="rotate" @rotate="rotateText"/>
+    <base-button name="제출" func="rotate" @rotate="rotateText"/>
+    <base-button name="알림" func="alert" @alert="alertMessage"/>
     <p class="str-print">{{ inputText }}</p>
   </div>
 </template>
@@ -19,12 +20,19 @@ export default {
   data() {
     return {
       inputText: '',
+      btnPressed: 0,
     };
   },
   methods: {
     rotateText() {
       const newText = this.inputText + this.inputText[0];
       this.inputText = newText.slice(1);
+    },
+    alertMessage() {
+      let template = `✍🏻 Input text: ${this.inputText} ✍🏻\n`;
+      this.btnPressed += 1;
+      template += (this.btnPressed % 3 ? `🔥 You just pressed ${this.btnPressed} times! 🔥` : '👏🏻👏🏻Clap👏🏻👏🏻');
+      alert(template); // eslint-disable-line no-alert
     },
   },
 };
