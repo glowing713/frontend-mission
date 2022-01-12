@@ -11,10 +11,6 @@ describe('BaseInput.vue', () => {
   });
 
   it('emit 이벤트의 콜백함수 인자로 전달되는 값이 입력과 동일해야 한다', async () => {
-    // await inpElement.setValue('hello!');
-    // await inpElement.setValue('hello world!야호!');
-    // await inpElement.setValue('hello world!야호!12345');
-    // await inpElement.setValue('hola!');
     inpElement.element.value = 'hello!';
     inpElement.trigger('input');
     expect(wrapper.emitted('update:modelValue')[1][0]).toEqual('hello!');
