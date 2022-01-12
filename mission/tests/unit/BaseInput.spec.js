@@ -14,22 +14,22 @@ describe('BaseInput.vue', () => {
     expect(wrapper.emitted()).toHaveProperty('update:modelValue');
   });
 
-  it('emit 이벤트의 콜백함수 인자로 전달되는 값이 입력과 동일해야 한다', async () => {
+  it('emit 이벤트의 콜백함수 인자로 전달되는 값이 입력과 동일해야 한다(Eng)', async () => {
     input.element.value = 'hello!';
     input.trigger('input');
-    console.log(wrapper.emitted());
-    expect(wrapper.emitted('update:modelValue')[0][0]).toEqual('hello!');
-
-    input.element.value = 'hello world!야호!';
+    const emitParameter = wrapper.emitted('update:modelValue')[0][0];
+    expect(emitParameter).toEqual('hello!');
+  });
+  it('emit 이벤트의 콜백함수 인자로 전달되는 값이 입력과 동일해야 한다(Kor)', async () => {
+    input.element.value = '안녕하세요!';
     input.trigger('input');
-    expect(wrapper.emitted('update:modelValue')[1][0]).toEqual('hello world!야호!');
-
-    input.element.value = 'hello world!야호!12345';
+    const emitParameter = wrapper.emitted('update:modelValue')[0][0];
+    expect(emitParameter).toEqual('안녕하세요!');
+  });
+  it('emit 이벤트의 콜백함수 인자로 전달되는 값이 입력과 동일해야 한다(Number)', async () => {
+    input.element.value = '12345';
     input.trigger('input');
-    expect(wrapper.emitted('update:modelValue')[2][0]).toEqual('hello world!야호!12345');
-
-    input.element.value = 'hola!';
-    input.trigger('input');
-    expect(wrapper.emitted('update:modelValue')[3][0]).toEqual('hola!');
+    const emitParameter = wrapper.emitted('update:modelValue')[0][0];
+    expect(emitParameter).toEqual('12345');
   });
 });
