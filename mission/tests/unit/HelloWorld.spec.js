@@ -22,15 +22,6 @@ describe('HelloWorld.vue', () => {
   it('2번 요구사항, input에서 입력한 값은 실시간으로 바로 밑에 표시가 된다', async () => {
     await input.setValue('hello');
     expect(p.text()).toBe('hello');
-
-    await input.setValue('hellooo');
-    expect(p.text()).toBe('hellooo');
-
-    await input.setValue('123123112');
-    expect(p.text()).toBe('123123112');
-
-    await input.setValue('이건 한글 버전의 테스트 케이스');
-    expect(p.text()).toBe('이건 한글 버전의 테스트 케이스');
   });
 
   it('3번 요구사항, 버튼을 누르면 입력/출력 문자열이 동시에 왼쪽으로 한칸씩 이동한다', async () => {
