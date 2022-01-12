@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
   "include": [
     "./src/**/*"
   ],
