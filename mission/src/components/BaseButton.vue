@@ -1,5 +1,5 @@
 <template>
-    <button class="base-button" @click="onClick">{{ name }}</button>
+    <button data-test="rotate-btn" @click="onClick">{{ name }}</button>
 </template>
 
 <script>

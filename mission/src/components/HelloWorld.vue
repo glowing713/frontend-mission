@@ -4,7 +4,7 @@
     <base-input v-model="inputText"/>
     <base-button name="제출" func="rotate" @rotate="rotateText"/>
     <base-button name="알림" func="alert" @alert="alertMessage"/>
-    <p class="str-print">{{ inputText }}</p>
+    <p class="str-print" data-test="rotated-txt">{{ inputText }}</p>
   </div>
 </template>
 
