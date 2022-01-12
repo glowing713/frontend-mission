@@ -1,8 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import BaseButton from '@/components/BaseButton.vue';
 
 describe('BaseButton.vue', () => {
-  const wrapper = mount(BaseButton);
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallowMount(BaseButton);
+  });
 
   it('emit check: func prop이 rotate일 때는 rotate trigger', async () => {
     await wrapper.setProps({ func: 'rotate' });
