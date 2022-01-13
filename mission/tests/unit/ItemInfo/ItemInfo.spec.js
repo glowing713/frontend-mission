@@ -31,4 +31,9 @@ describe('ItemInfoPage', () => {
     const productPrice = wrapper.find('[data-test="product-price"]');
     expect(productPrice.exists()).toBe(true);
   });
+
+  it('renders product details', () => {
+    const productDetails = wrapper.find('[data-test="product-details"]');
+    expect(productDetails.exists()).toBe(true);
+  });
 });
