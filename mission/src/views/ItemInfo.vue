@@ -1,5 +1,7 @@
 <template>
-<div id='item-info-page'></div>
+<div id='item-info-page'>
+  <img src="@/assets/logo.png" alt="product-img" data-test="product-img">
+</div>
 </template>
 
 <script>
