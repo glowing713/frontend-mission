@@ -1,6 +1,7 @@
 <template>
 <div id='item-info-page'>
   <img src="@/assets/logo.png" alt="product-img" data-test="product-img">
+  <div class="saler-info" data-test="saler-info"></div>
 </div>
 </template>
 
