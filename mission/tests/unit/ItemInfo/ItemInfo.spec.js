@@ -36,4 +36,9 @@ describe('ItemInfoPage', () => {
     const productDetails = wrapper.find('[data-test="product-details"]');
     expect(productDetails.exists()).toBe(true);
   });
+
+  it('renders product reviews', () => {
+    const productReviews = wrapper.find('[data-test="product-reviews"]');
+    expect(productReviews.exists()).toBe(true);
+  });
 });
