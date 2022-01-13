@@ -1,6 +1,8 @@
 <template>
   <div class="product-review">
-      <div class="review-contents" data-test="review-contents"></div>
+      <div class="review-contents" data-test="review-contents">
+          <p class="review-author" data-test="review-author"></p>
+      </div>
   </div>
 </template>
 
