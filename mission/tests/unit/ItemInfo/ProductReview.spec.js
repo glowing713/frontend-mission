@@ -17,4 +17,9 @@ describe('ProductReview.vue', () => {
     const reviewAuthor = wrapper.find('[data-test="review-author"]');
     expect(reviewAuthor.exists()).toBe(true);
   });
+
+  it('renders review author info', () => {
+    const reviewInfo = wrapper.find('[data-test="review-info"]');
+    expect(reviewInfo.exists()).toBe(true);
+  });
 });
