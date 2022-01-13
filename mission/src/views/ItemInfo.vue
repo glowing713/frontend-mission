@@ -5,6 +5,7 @@
     <div class="product-name" data-test="product-name"></div>
     <div class="product-price" data-test="product-price"></div>
     <div class="product-details" data-test="product-details"></div>
+    <div class="product-reviews" data-test="product-reviews"></div>
   </div>
 </template>
 
