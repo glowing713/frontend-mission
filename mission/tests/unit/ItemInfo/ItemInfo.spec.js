@@ -4,12 +4,12 @@ import ItemInfoPage from '@/views/ItemInfo.vue';
 describe('ItemInfoPage', () => {
   let wrapper;
   let productImg;
-  let productSalerInfo;
+  let productSellerInfo;
 
   beforeEach(() => {
     wrapper = mount(ItemInfoPage);
     productImg = wrapper.get('[data-test="product-img"]');
-    productSalerInfo = wrapper.get('[data-test="saler-info"]');
+    productSellerInfo = wrapper.get('[data-test="seller-info"]');
   });
 
   it('renders ItemInfoPage', () => {
@@ -20,7 +20,7 @@ describe('ItemInfoPage', () => {
     expect(productImg.exists()).toBe(true);
   });
 
-  it('renders product saler div', () => {
-    expect(productSalerInfo.exists()).toBe(true);
+  it('renders product seller info', () => {
+    expect(productSellerInfo.exists()).toBe(true);
   });
 });

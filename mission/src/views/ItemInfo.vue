@@ -1,21 +1,21 @@
 <template>
 <div id='item-info-page'>
   <img src="@/assets/logo.png" alt="product-img" data-test="product-img">
-  <saler-info :salerName="this.salerName" :salerTags="this.salerTags"/>
+  <seller-info :sellerName="this.sellerName" :sellerTags="this.sellerTags"/>
 </div>
 </template>
 
 <script>
-import SalerInfo from '@/components/SalerInfo.vue';
+import SellerInfo from '@/components/SellerInfo.vue';
 import DrMartinTags from '@/assets/DrMartinTags';
 
 export default {
   name: 'ItemInfoPage',
-  components: { SalerInfo },
+  components: { SellerInfo },
   data() {
     return {
-      salerName: 'Sean',
-      salerTags: DrMartinTags,
+      sellerName: 'Sean',
+      sellerTags: DrMartinTags,
     };
   },
   methods: {
