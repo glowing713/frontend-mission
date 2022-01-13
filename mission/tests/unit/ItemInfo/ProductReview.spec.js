@@ -7,4 +7,9 @@ describe('ProductReview.vue', () => {
   beforeEach(() => {
     wrapper = mount(ProductReview);
   });
+
+  it('renders review contents(texts)', () => {
+    const reviewContent = wrapper.find('[data-test="review-contents]');
+    expect(reviewContent.exists()).toBe(true);
+  });
 });
