@@ -7,7 +7,13 @@
         <p class="author-weight" v-if="info">{{ info.weight }}</p>
       </div>
       <p class="review-content" data-test="review-content"></p>
-      <img src="@/assets/review01.png" alt="review-img" class="review-img" data-test="review-img">
+      <img
+        v-if="imageSrc"
+        :src="imageSrc"
+        alt="review-img"
+        class="review-img"
+        data-test="review-img"
+      />
     </div>
   </div>
 </template>
@@ -21,6 +27,7 @@ export default {
       height: Number,
       weight: Number,
     },
+    imageSrc: String,
     review: String,
   },
 };
