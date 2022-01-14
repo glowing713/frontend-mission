@@ -6,6 +6,7 @@
         <p class="author-height" v-if="info">{{ info.height }}</p>
         <p class="author-weight" v-if="info">{{ info.weight }}</p>
       </div>
+      <p class="review-content" data-test="review-content"></p>
     </div>
   </div>
 </template>
