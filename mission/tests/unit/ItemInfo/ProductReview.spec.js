@@ -27,9 +27,4 @@ describe('ProductReview.vue', () => {
     const reviewContent = wrapper.find('[data-test="review-content"]');
     expect(reviewContent.exists()).toBe(true);
   });
-
-  it('renders review image', () => {
-    const reviewImage = wrapper.find('[data-test="review-img"]');
-    expect(reviewImage.exists()).toBe(true);
-  });
 });
