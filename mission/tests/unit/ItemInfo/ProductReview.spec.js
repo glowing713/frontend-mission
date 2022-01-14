@@ -24,7 +24,7 @@ describe('ProductReview.vue', () => {
   });
 
   it('renders review content', () => {
-    const reviewContent = wrapper.find('[data-find="review-content"]');
+    const reviewContent = wrapper.find('[data-test="review-content"]');
     expect(reviewContent.exists()).toBe(true);
   });
 });
