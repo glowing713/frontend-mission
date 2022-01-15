@@ -9,8 +9,9 @@
       <product-info v-bind="product" />
     </div>
 
+    <!-- additional info -->
     <div class="product-addinfo">
-      <div class="product-details" data-test="product-details"></div>
+      <div class="product-details" data-test="product-details" v-html="detailInfo"></div>
       <div class="product-reviews" data-test="product-reviews">
         <product-review
           v-for="(review, idx) in reviews"
@@ -36,6 +37,7 @@ import ProductInfo from '@/components/ProductInfo.vue';
 import DrMartinSeller from '@/assets/DrMartinSeller';
 import DrMartinReviews from '@/assets/DrMartinReviews';
 import DrMartinInfo from '@/assets/DrMartinInfo';
+import DrMartinDetails from '@/assets/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
 
 export default {
   name: 'ItemInfoPage',
@@ -49,6 +51,7 @@ export default {
   data() {
     return {
       product: DrMartinInfo,
+      detailInfo: DrMartinDetails,
       seller: DrMartinSeller,
       reviews: DrMartinReviews,
     };
@@ -64,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+#brandiProductDetailApi img {
+  width: 100%;
+}
 </style>
