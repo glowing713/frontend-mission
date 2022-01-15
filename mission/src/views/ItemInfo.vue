@@ -15,27 +15,35 @@
         :review="review.text"
       />
     </div>
+    <like-buy-buttons :price="finalPrice"/>
   </div>
 </template>
 
 <script>
 import SellerInfo from '@/components/SellerInfo.vue';
 import ProductReview from '@/components/ProductReview.vue';
+import LikeBuyButtons from '@/components/LikeBuyButtons.vue';
 
 import DrMartinSeller from '@/assets/DrMartinSeller';
 import DrMartinReviews from '@/assets/DrMartinReviews';
+import DrMartinInfo from '@/assets/DrMartinInfo';
 
 export default {
   name: 'ItemInfoPage',
-  components: { SellerInfo, ProductReview },
+  components: { SellerInfo, ProductReview, LikeBuyButtons },
   data() {
     return {
+      product: DrMartinInfo,
       seller: DrMartinSeller,
       reviews: DrMartinReviews,
     };
   },
   methods: {},
-  computed: {},
+  computed: {
+    finalPrice() {
+      return this.product.price * (100 - this.product.discountRate) * 0.01;
+    },
+  },
 };
 </script>
 
