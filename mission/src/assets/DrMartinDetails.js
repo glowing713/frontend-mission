@@ -1,0 +1,3 @@
+const DrMartinDetails = '<div id="brandiProductDetailApi"><div style="max-width: 100%;"><img src="https://image.brandi.me/common/banner_view_imgwide.png" alt="" style="max-width: 100%;"></div><img src="https://drmarten.diskn.com/3rd/top.jpg" alt="" style="max-width: 100%;"><br style="max-width: 100%;"> <img alt="" src="http://drmarten.diskn.com/test/brand.jpg" style="max-width: 100%;"><img alt="" src="http://drmarten.diskn.com/3rdparty/14345001-mo.jpg" style="max-width: 100%;"> <img src="http://drmarten.diskn.com/DELIVERY/size_hiver.jpg" alt="" style="max-width: 100%;"><br style="max-width: 100%;"></div>';
+
+export default DrMartinDetails;
