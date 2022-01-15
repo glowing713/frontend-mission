@@ -3,10 +3,10 @@
     <div class="review-contents" data-test="review-contents">
       <p class="review-author" data-test="review-author">{{ blindName }}</p>
       <div class="review-info" data-test="review-info">
-        <p class="author-height" v-if="info">{{ this.info.height }}cm</p>
-        <p class="author-weight" v-if="info">{{ this.info.weight }}kg</p>
+        <p class="author-height">{{ info.height }}cm</p>
+        <p class="author-weight">{{ info.weight }}kg</p>
       </div>
-      <p class="review-content" data-test="review-content">{{ this.review }}</p>
+      <p class="review-content" data-test="review-content">{{ review }}</p>
       <img
         v-if="imageSrc"
         :src="imageSrc"
