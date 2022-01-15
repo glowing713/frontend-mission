@@ -4,7 +4,7 @@
     <div class="product-price" data-test="product-price">
       <span class="discount-rate" v-if="discount">{{ discountRate }}%</span>
       <span class="origin-price">{{ finalPrice }}</span>
-      <span class="discount-price" v-if="discount">{{ price }}</span>
+      <span class="discount-origin-price" v-if="discount">{{ colonNumber }}</span>
     </div>
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
     finalPrice() {
       const price = String(this.price * (100 - this.discountRate) * 0.01);
       return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    },
+    colonNumber() {
+      return String(this.price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     },
   },
 };
