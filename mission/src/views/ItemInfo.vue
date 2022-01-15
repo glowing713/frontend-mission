@@ -2,14 +2,11 @@
   <div id="item-info-page">
     <div class="product-info">
       <!-- thumbnail -->
-      <image-slider :imgUrls="product.thumbnails"/>
+      <image-slider :imgUrls="product.thumbnails" />
       <!-- seller-info -->
       <seller-info v-bind="seller" />
       <!-- basic-info -->
-      <div class="basic-info">
-        <div class="product-name" data-test="product-name"></div>
-        <div class="product-price" data-test="product-price"></div>
-      </div>
+      <product-info v-bind="product" />
     </div>
 
     <div class="product-addinfo">
@@ -34,6 +31,7 @@ import SellerInfo from '@/components/SellerInfo.vue';
 import ProductReview from '@/components/ProductReview.vue';
 import LikeBuyButtons from '@/components/LikeBuyButtons.vue';
 import ImageSlider from '@/components/ImageSlider.vue';
+import ProductInfo from '@/components/ProductInfo.vue';
 
 import DrMartinSeller from '@/assets/DrMartinSeller';
 import DrMartinReviews from '@/assets/DrMartinReviews';
@@ -46,6 +44,7 @@ export default {
     ProductReview,
     LikeBuyButtons,
     ImageSlider,
+    ProductInfo,
   },
   data() {
     return {
@@ -57,7 +56,8 @@ export default {
   methods: {},
   computed: {
     finalPrice() {
-      return this.product.price * (100 - this.product.discountRate) * 0.01;
+      const price = String(this.product.price * (100 - this.product.discountRate) * 0.01);
+      return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     },
   },
 };
