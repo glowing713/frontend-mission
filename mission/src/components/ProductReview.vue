@@ -1,12 +1,12 @@
 <template>
   <div class="product-review">
     <div class="review-contents" data-test="review-contents">
-      <p class="review-author" data-test="review-author"></p>
+      <p class="review-author" data-test="review-author">{{ blindName }}</p>
       <div class="review-info" data-test="review-info">
-        <p class="author-height" v-if="info">{{ info.height }}</p>
-        <p class="author-weight" v-if="info">{{ info.weight }}</p>
+        <p class="author-height" v-if="info">{{ this.info.height }}cm</p>
+        <p class="author-weight" v-if="info">{{ this.info.weight }}kg</p>
       </div>
-      <p class="review-content" data-test="review-content"></p>
+      <p class="review-content" data-test="review-content">{{ this.review }}</p>
       <img
         v-if="imageSrc"
         :src="imageSrc"
@@ -29,6 +29,12 @@ export default {
     },
     imageSrc: String,
     review: String,
+  },
+  computed: {
+    blindName() {
+      const blindName = `${this.nickname.slice(0, 2)}${'*'.repeat(this.nickname.slice(2).length)}`;
+      return blindName;
+    },
   },
 };
 </script>
