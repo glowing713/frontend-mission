@@ -31,6 +31,7 @@ export default {
   align-items: flex-start;
   width: 100%;
   height: 100%;
+  margin-left: 20px;
 }
 
 .seller-logo-name {
@@ -47,7 +48,6 @@ export default {
   border-radius: 20px;
   width: 35px;
   height: 35px;
-  margin-left: 6px;
 }
 
 .seller-logo-name p {
@@ -60,7 +60,7 @@ export default {
   width: 100%;
   height: 100%;
   color: grey;
-  font-size: 18px;
+  font-size: 17px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -68,6 +68,6 @@ export default {
 }
 
 .seller-tags p {
-  margin: 0 0 0 10px;
+  margin: 0 0 0 6px;
 }
 </style>

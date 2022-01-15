@@ -35,3 +35,44 @@ export default {
   },
 };
 </script>
+
+<style>
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px 0 0 20px;
+  font-size: 23px;
+}
+
+.product-price {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.discount-rate {
+  font-weight: bold;
+  color: #C9974E;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 2px 0 0;
+}
+
+.origin-price {
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 2px 0 2px;
+}
+
+.discount-origin-price {
+  color: #AAACB2;
+  font-size: 15px;
+  text-decoration: line-through;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 2px 0 2px;
+}
+</style>
