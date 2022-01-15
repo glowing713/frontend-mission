@@ -9,7 +9,7 @@
 export default {
   name: 'LikeBuyButtons',
   props: {
-    price: Number,
+    price: String,
   },
   data() {
     return {
