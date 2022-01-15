@@ -11,16 +11,13 @@
 
     <!-- additional info -->
     <div class="product-addinfo">
-      <div class="product-details" data-test="product-details" v-html="detailInfo"></div>
+      <div
+        class="product-details"
+        data-test="product-details"
+        v-html="detailInfo"
+      ></div>
       <div class="product-reviews" data-test="product-reviews">
-        <product-review
-          v-for="(review, idx) in reviews"
-          :key="idx"
-          :nickname="review.nickname"
-          :info="review.info"
-          :imageSrc="review.imageSrc"
-          :review="review.text"
-        />
+        <render-reviews v-bind="reviews" />
       </div>
     </div>
     <like-buy-buttons :price="finalPrice" />
@@ -29,7 +26,7 @@
 
 <script>
 import SellerInfo from '@/components/SellerInfo.vue';
-import ProductReview from '@/components/ProductReview.vue';
+import RenderReviews from '@/components/Review/RenderReviews.vue';
 import LikeBuyButtons from '@/components/LikeBuyButtons.vue';
 import ImageSlider from '@/components/ImageSlider.vue';
 import ProductInfo from '@/components/ProductInfo.vue';
@@ -43,7 +40,7 @@ export default {
   name: 'ItemInfoPage',
   components: {
     SellerInfo,
-    ProductReview,
+    RenderReviews,
     LikeBuyButtons,
     ImageSlider,
     ProductInfo,
@@ -59,7 +56,9 @@ export default {
   methods: {},
   computed: {
     finalPrice() {
-      const price = String(this.product.price * (100 - this.product.discountRate) * 0.01);
+      const price = String(
+        this.product.price * (100 - this.product.discountRate) * 0.01,
+      );
       return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     },
   },
