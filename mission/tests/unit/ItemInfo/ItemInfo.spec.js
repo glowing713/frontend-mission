@@ -41,4 +41,14 @@ describe('ItemInfoPage', () => {
     const productReviews = wrapper.find('[data-test="product-reviews"]');
     expect(productReviews.exists()).toBe(true);
   });
+
+  it('renders buy button', () => {
+    const buyButton = wrapper.find('[data-test="buy-button"]');
+    expect(buyButton.exists()).toBe(true);
+  });
+
+  it('renders like button', () => {
+    const likeButton = wrapper.find('[data-test="like-button"]');
+    expect(likeButton.exists()).toBe(true);
+  });
 });
