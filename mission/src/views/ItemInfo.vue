@@ -1,22 +1,22 @@
 <template>
   <div id="item-info-page">
-    <div class="product-info">
-      <!-- thumbnail -->
-      <image-slider :imgUrls="product.thumbnails" />
-      <!-- seller-info -->
-      <seller-info v-bind="seller" />
-      <!-- basic-info -->
-      <product-info v-bind="product" />
-    </div>
+    <div class="container">
+      <div class="product-info">
+        <!-- thumbnail -->
+        <image-slider :imgUrls="product.thumbnails" />
+        <!-- seller-info -->
+        <seller-info v-bind="seller" />
+        <!-- basic-info -->
+        <product-info v-bind="product" />
+      </div>
 
-    <!-- additional info -->
-    <div class="product-addinfo">
-      <div
-        class="product-details"
-        data-test="product-details"
-        v-html="detailInfo"
-      ></div>
-      <div class="product-reviews" data-test="product-reviews">
+      <!-- additional info -->
+      <div class="product-addinfo">
+        <div
+          class="product-details"
+          data-test="product-details"
+          v-html="detailInfo"
+        ></div>
         <render-reviews v-bind="reviews" />
       </div>
     </div>
@@ -68,5 +68,9 @@ export default {
 <style scoped>
 #brandiProductDetailApi img {
   width: 100%;
+}
+
+.container {
+  padding-bottom: 100px;
 }
 </style>
