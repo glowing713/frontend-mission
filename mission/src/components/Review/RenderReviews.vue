@@ -1,7 +1,8 @@
 <template>
-  <div class="product-review">
+  <div class="product-reviews">
     <div class="review-contents" data-test="review-contents">
       <div class="photo-reviews">
+        <p class="pr-title">포토리뷰 <span>{{photoReviews.length}}</span></p>
         <review-item
           v-for="(review, idx) in photoReviews"
           :key="idx"
@@ -13,6 +14,7 @@
         />
       </div>
       <div class="text-reviews">
+        <p class="tr-title">텍스트리뷰 <span>{{textReviews.length}}</span></p>
         <review-item
           v-for="(review, idx) in textReviews"
           :key="idx"
@@ -38,3 +40,19 @@ export default {
   },
 };
 </script>
+
+<style>
+.pr-title, .tr-title {
+  margin-left: 20px;
+  font-size: 19px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pr-title span, .tr-title span {
+  margin-left: 5px;
+  color: #8D8D8D;
+}
+</style>

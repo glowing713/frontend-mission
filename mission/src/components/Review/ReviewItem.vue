@@ -1,11 +1,15 @@
 <template>
   <div class="review-item">
-    <p class="review-author" data-test="review-author">{{ blindName }}</p>
-    <div class="review-info" data-test="review-info">
-      <p class="author-height">{{ info.height }}cm</p>
-      <p class="author-weight">{{ info.weight }}kg</p>
+    <div class="review-text">
+      <div class="author-info">
+        <p class="review-author" data-test="review-author">{{ blindName }}</p>
+        <div class="review-info" data-test="review-info">
+          <p class="author-height">{{ info.height }}cm</p>
+          <p class="author-weight">{{ info.weight }}kg</p>
+        </div>
+      </div>
+      <p class="review-content" data-test="review-content">{{ review }}</p>
     </div>
-    <p class="review-content" data-test="review-content">{{ review }}</p>
     <img
       v-if="imageSrc"
       :src="imageSrc"
@@ -36,3 +40,60 @@ export default {
   },
 };
 </script>
+
+<style>
+.review-item {
+  border-top: 1px solid;
+  border-color: black;
+  display: flex;
+  flex-direction: row;
+  height: 165px;
+}
+
+.review-text {
+  flex-grow: 15;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.review-img {
+  flex-grow: 1;
+  margin: 8px;
+  max-width: 160px;
+  max-height: 160px;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.review-author {
+  margin: 0;
+  font-size: 19px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: row;
+  font-size: 11px;
+  color: #8d8d8d;
+}
+
+.review-content {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.author-weight {
+  margin-left: 5px;
+}
+</style>
