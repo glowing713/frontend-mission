@@ -61,9 +61,9 @@ export default {
 
 .review-img {
   flex-grow: 1;
-  margin: 8px;
-  max-width: 160px;
-  max-height: 160px;
+  margin: 35px;
+  max-width: 90px;
+  max-height: 90px;
   width: 100%;
   height: 100%;
   border-radius: 4px;
