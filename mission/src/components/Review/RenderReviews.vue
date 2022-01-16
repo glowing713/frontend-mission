@@ -1,5 +1,5 @@
 <template>
-  <div class="product-reviews">
+  <div class="product-reviews" data-test="product-reviews">
     <div class="review-contents" data-test="review-contents">
       <div class="photo-reviews">
         <p class="pr-title">포토리뷰 <span>{{photoReviews.length}}</span></p>
