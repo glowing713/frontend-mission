@@ -2,7 +2,9 @@
   <div class="review-item">
     <div class="review-text">
       <div class="author-info">
-        <p class="review-author" data-test="review-author">{{ blindName }}</p>
+        <p class="review-author" data-test="review-author">
+          {{ blindName }}<span>{{ generated }}</span>
+        </p>
         <div class="review-info" data-test="review-info">
           <p class="author-height">{{ info.height }}cm</p>
           <p class="author-weight">{{ info.weight }}kg</p>
@@ -76,6 +78,14 @@ export default {
   color: black;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+}
+
+.review-author span {
+  margin-left: 17px;
+  color: #8d8d8d;
+  font-weight: normal;
+  font-size: 15px;
 }
 
 .review-info {
