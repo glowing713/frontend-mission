@@ -26,11 +26,11 @@ export default {
   },
   computed: {
     finalPrice() {
-      const price = String(this.price * (100 - this.discountRate) * 0.01);
-      return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      const price = this.price * (100 - this.discountRate) * 0.01;
+      return price.toLocaleString();
     },
     colonNumber() {
-      return String(this.price).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return this.price.toLocaleString();
     },
   },
 };

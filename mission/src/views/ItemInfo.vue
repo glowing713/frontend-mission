@@ -56,10 +56,8 @@ export default {
   methods: {},
   computed: {
     finalPrice() {
-      const price = String(
-        this.product.price * (100 - this.product.discountRate) * 0.01,
-      );
-      return price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      const price = this.product.price * (100 - this.product.discountRate) * 0.01;
+      return price.toLocaleString();
     },
   },
 };
