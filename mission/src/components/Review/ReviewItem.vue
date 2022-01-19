@@ -1,13 +1,13 @@
 <template>
   <div class="review-item">
     <div class="review-text">
-      <div class="author-info">
+      <div class="author-userMeasure">
         <p class="review-author" data-test="review-author">
           {{ blindName }}<span>{{ generated }}</span>
         </p>
-        <div class="review-info" data-test="review-info">
-          <p class="author-height">{{ info.height }}cm</p>
-          <p class="author-weight">{{ info.weight }}kg</p>
+        <div class="review-userMeasure" data-test="review-userMeasure">
+          <p class="author-height">{{ userMeasure.height }}cm</p>
+          <p class="author-weight">{{ userMeasure.weight }}kg</p>
         </div>
       </div>
       <p class="review-content" data-test="review-content">{{ review }}</p>
@@ -28,7 +28,7 @@ export default {
   props: {
     nickname: String,
     generated: String,
-    info: Object,
+    userMeasure: Object,
     imageSrc: String,
     review: String,
   },
@@ -88,7 +88,7 @@ export default {
   font-size: 15px;
 }
 
-.review-info {
+.review-userMeasure {
   display: flex;
   flex-direction: row;
   font-size: 11px;

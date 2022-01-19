@@ -8,7 +8,7 @@
           :key="idx"
           :nickname="review.nickname"
           :generated="review.generated"
-          :info="review.info"
+          :userMeasure="review.userMeasure"
           :imageSrc="review.imageSrc"
           :review="review.text"
         />
@@ -20,7 +20,7 @@
           :key="idx"
           :nickname="review.nickname"
           :generated="review.generated"
-          :info="review.info"
+          :userMeasure="review.userMeasure"
           :review="review.text"
         />
       </div>

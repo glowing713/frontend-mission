@@ -3,7 +3,7 @@ const reviewObjs = {
     {
       nickname: 'externship',
       generated: '2022.01.09',
-      info: {
+      userMeasure: {
         height: 175,
         weight: 70,
       },
@@ -15,7 +15,7 @@ const reviewObjs = {
     {
       nickname: 'vueisfun',
       generated: '2022.01.14',
-      info: {
+      userMeasure: {
         height: 180,
         weight: 78,
       },
@@ -24,7 +24,7 @@ const reviewObjs = {
     {
       nickname: 'drmartingood',
       generated: '2022.01.11',
-      info: {
+      userMeasure: {
         height: 165,
         weight: 60,
       },
