@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import BaseInput from '@/components/BaseInput.vue';
+import BaseInput from '@/components/BaseComponent/BaseInput.vue';
 
 describe('BaseInput.vue', () => {
   let wrapper;

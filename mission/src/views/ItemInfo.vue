@@ -25,16 +25,16 @@
 </template>
 
 <script>
-import SellerInfo from '@/components/SellerInfo.vue';
+import SellerInfo from '@/components/ItemInfo/SellerInfo.vue';
 import RenderReviews from '@/components/Review/RenderReviews.vue';
-import LikeBuyButtons from '@/components/LikeBuyButtons.vue';
-import ImageSlider from '@/components/ImageSlider.vue';
-import ProductInfo from '@/components/ProductInfo.vue';
+import LikeBuyButtons from '@/components/ItemInfo/LikeBuyButtons.vue';
+import ImageSlider from '@/components/ItemInfo/ImageSlider.vue';
+import ProductInfo from '@/components/ItemInfo/ProductInfo.vue';
 
-import DrMartinSeller from '@/assets/DrMartinSeller';
-import DrMartinReviews from '@/assets/DrMartinReviews';
-import DrMartinInfo from '@/assets/DrMartinInfo';
-import DrMartinDetails from '@/assets/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
+import DrMartinSeller from '@/assets/DrMartin/DrMartinSeller';
+import DrMartinReviews from '@/assets/DrMartin/DrMartinReviews';
+import DrMartinInfo from '@/assets/DrMartin/DrMartinInfo';
+import DrMartinDetails from '@/assets/DrMartin/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
 
 export default {
   name: 'ItemInfoPage',

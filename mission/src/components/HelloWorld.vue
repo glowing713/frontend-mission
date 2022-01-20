@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import BaseInput from './BaseInput.vue';
-import BaseButton from './BaseButton.vue';
+import BaseInput from '@/components/BaseComponent/BaseInput.vue';
+import BaseButton from '@/components/BaseComponent/BaseButton.vue';
 
 export default {
   components: { BaseInput, BaseButton },
