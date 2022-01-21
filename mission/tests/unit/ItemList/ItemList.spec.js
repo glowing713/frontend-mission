@@ -17,4 +17,10 @@ describe('ItemListPage', () => {
 
     expect(header.exists()).toBe(true);
   });
+
+  it('renders navigation bar', () => {
+    const nav = wrapper.find('[data-test="nav-container"]');
+
+    expect(nav.exists()).toBe(true);
+  });
 });
