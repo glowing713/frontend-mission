@@ -19,4 +19,10 @@ describe('BaseHeader', () => {
 
     expect(mallName.exists()).toBe(true);
   });
+
+  it('contains notice button', () => {
+    const noticeLink = wrapper.find('[data-test="notice-link"]');
+
+    expect(noticeLink.exists()).toBe(true);
+  });
 });
