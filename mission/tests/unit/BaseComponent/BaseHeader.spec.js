@@ -25,4 +25,12 @@ describe('BaseHeader', () => {
 
     expect(noticeLink.exists()).toBe(true);
   });
+
+  describe('Mall name anchor', () => {
+    it('anchors to main page(/) on click', () => {
+      const mallName = wrapper.find('[data-test="mall-name"]');
+      const anchor = mallName.find('a');
+      expect(anchor.attributes('href')).toBe('/');
+    });
+  });
 });
