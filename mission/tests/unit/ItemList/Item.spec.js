@@ -1,10 +1,20 @@
 import { mount } from '@vue/test-utils';
-import ItemInfoPage from '@/components/ItemList/Item.vue';
+import ItemListItem from '@/components/ItemList/Item.vue';
 
 describe('ItemListItem', () => {
-  it('redners ItemListItem', () => {
-    const wrapper = mount(ItemInfoPage);
+  let wrapper;
 
+  beforeEach(() => {
+    wrapper = mount(ItemListItem);
+  });
+
+  it('redners ItemListItem', () => {
     expect(wrapper.find('.item-list-item').exists()).toBe(true);
+  });
+
+  it('renders thumbnail', () => {
+    const thumbnail = wrapper.find('[data-test="thumbnail"]');
+
+    expect(thumbnail.exists()).toBe(true);
   });
 });
