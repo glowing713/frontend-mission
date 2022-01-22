@@ -25,10 +25,20 @@ describe('ItemListItem', () => {
   });
 
   describe('content price', () => {
-    it('renders price', () => {
-      const contentPrice = wrapper.find('[data-test="price"]');
+    let contentPrice;
 
+    beforeEach(() => {
+      contentPrice = wrapper.find('[data-test="price"]');
+    });
+
+    it('renders price span', () => {
       expect(contentPrice.exists()).toBe(true);
+    });
+
+    it('shows discounted price if item is on sale', async () => {
+      await wrapper.setProps({ price: 10000, discountRate: 10 });
+
+      expect(contentPrice.text()).toEqual(String(10000 * 0.9));
     });
   });
 });
