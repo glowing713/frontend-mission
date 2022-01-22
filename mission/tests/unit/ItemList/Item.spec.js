@@ -49,4 +49,28 @@ describe('ItemListItem', () => {
       expect(discountRate.text()).toEqual(String(10)); // String 타입이라는 것을 명시하기 위해 형변환을 시킴
     });
   });
+
+  it('renders market name', () => {
+    const marketName = wrapper.find('[data-test="market-name"]');
+
+    expect(marketName.exists()).toBe(true);
+  });
+
+  it('renders item name', () => {
+    const itemName = wrapper.find('[data-test="item-name"]');
+
+    expect(itemName.exists()).toBe(true);
+  });
+
+  describe('sell count', () => {
+    let sellCount;
+
+    beforeEach(() => {
+      sellCount = wrapper.find('[data-test="sell-count"]');
+    });
+
+    it('renders sell count', () => {
+      expect(sellCount.exists()).toBe(true);
+    });
+  });
 });
