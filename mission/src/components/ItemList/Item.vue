@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     finalPrice() {
-      return this.price * (100 - this.discountRate) * 0.01;
+      return (this.price * (100 - this.discountRate) * 0.01).toLocaleString();
     },
     isOnSale() {
       return this.discountRate > 0;
