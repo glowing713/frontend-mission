@@ -1,6 +1,8 @@
 <template>
   <nav data-test="nav-container">
-    <ul></ul>
+    <ul>
+      <li v-for="icon in buttonIcons" :key="icon.id" v-html="icon.html"></li>
+    </ul>
   </nav>
 </template>
 
@@ -9,7 +11,7 @@ export default {
   name: 'BaseNav',
   data() {
     return {
-      navButtons: [
+      buttonIcons: [
         {
           id: 'home',
           html: '<i class="fas fa-home" />',
