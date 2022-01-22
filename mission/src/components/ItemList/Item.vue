@@ -19,8 +19,8 @@
         <span data-test="item-name" class="item-name">{{ productName }}</span>
       </div>
       <div class="sell-info">
-        <span data-test="sell-count" class="sell-count">
-          {{ sold }}
+        <span v-if="sold" data-test="sell-count" class="sell-count">
+          {{ sold.toLocaleString() }}개 구매중
         </span>
       </div>
     </div>
