@@ -10,6 +10,19 @@
         }}</span>
         <span data-test="price" class="price">{{ finalPrice }}</span>
       </div>
+      <div class="market-info">
+        <span data-test="market-name" class="market-name">{{
+          marketName
+        }}</span>
+      </div>
+      <div class="item-info">
+        <span data-test="item-name" class="item-name">{{ productName }}</span>
+      </div>
+      <div class="sell-info">
+        <span data-test="sell-count" class="sell-count">
+          {{ sold }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
