@@ -5,6 +5,9 @@
     </div>
     <div data-test="content" class="content-container">
       <div data-test="price-info" class="price-info">
+        <span v-if="isOnSale" data-test="discount-rate" class="discount-rate">{{
+          discountRate
+        }}</span>
         <span data-test="price" class="price">{{ finalPrice }}</span>
       </div>
     </div>
@@ -25,6 +28,9 @@ export default {
   computed: {
     finalPrice() {
       return this.price * (100 - this.discountRate) * 0.01;
+    },
+    isOnSale() {
+      return this.discountRate > 0;
     },
   },
 };
