@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .header-container {
   width: auto;
-  height: 55px;
+  height: 27px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
