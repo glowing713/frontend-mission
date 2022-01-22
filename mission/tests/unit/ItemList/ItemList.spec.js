@@ -25,7 +25,7 @@ describe('ItemListPage', () => {
   });
 
   it('renders item lists container', () => {
-    const itemLists = wrapper.find('[data-test="item-lists-container"]');
+    const itemLists = wrapper.find('[data-test="item-list-container"]');
 
     expect(itemLists.exists()).toBe(true);
   });
