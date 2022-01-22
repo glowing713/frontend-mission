@@ -23,4 +23,12 @@ describe('ItemListItem', () => {
 
     expect(content.exists()).toBe(true);
   });
+
+  describe('content price', () => {
+    it('renders price', () => {
+      const contentPrice = wrapper.find('[data-test="price"]');
+
+      expect(contentPrice.exists()).toBe(true);
+    });
+  });
 });
