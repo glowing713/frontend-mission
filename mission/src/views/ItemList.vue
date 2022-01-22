@@ -44,14 +44,14 @@ export default {
 .item-list-container {
   display: grid;
   gap: 20px 12px;
-  padding: 16px 12px;
+  padding: 16px 12px 76px 12px;
   grid-template-columns: repeat(auto-fill, minmax(169px, 1fr));
 }
 
 @media screen and (max-width: 767px) {
   .item-list-container {
     gap: 5vw 3vw;
-    padding: 4vw 3vw;
+    padding: 4vw 3vw 71px 3vw;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
