@@ -29,8 +29,21 @@ export default {
   components: { BaseHeader, BaseNav, ItemListItem },
   data() {
     return {
-      itemList,
+      itemList: [],
     };
+  },
+  methods: {
+    getApiData() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('Getting item list from server...🏃🏻‍♂️');
+          resolve(itemList);
+        }, 1000);
+      });
+    },
+  },
+  created() {
+    this.getApiData().then((apiData) => { this.itemList = apiData; });
   },
 };
 </script>
