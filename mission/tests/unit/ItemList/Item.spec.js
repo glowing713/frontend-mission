@@ -40,5 +40,13 @@ describe('ItemListItem', () => {
 
       expect(contentPrice.text()).toEqual(String(10000 * 0.9));
     });
+
+    it('renders discount rate if item is on sale', async () => {
+      await wrapper.setProps({ price: 10000, discountRate: 10 });
+      const discountRate = wrapper.find('[data-test="discount-rate"]');
+
+      expect(discountRate.exists()).toBe(true);
+      expect(discountRate.text()).toEqual(String(10));
+    });
   });
 });
