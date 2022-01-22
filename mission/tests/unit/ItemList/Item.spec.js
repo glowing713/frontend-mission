@@ -65,12 +65,18 @@ describe('ItemListItem', () => {
   describe('sell count', () => {
     let sellCount;
 
-    beforeEach(() => {
+    beforeEach(async () => {
+      await wrapper.setProps({ sold: 1000 });
+
       sellCount = wrapper.find('[data-test="sell-count"]');
     });
 
     it('renders sell count', () => {
       expect(sellCount.exists()).toBe(true);
+    });
+
+    it('renders formatted number(toLocaleString)', async () => {
+      expect(sellCount.text()).toEqual(`${(1000).toLocaleString()}개 구매중`);
     });
   });
 });
