@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
-import ItemInfoPage from '@/views/ItemList.vue';
+import ItemListPage from '@/views/ItemList.vue';
 
 describe('ItemListPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(ItemInfoPage);
+    wrapper = mount(ItemListPage);
   });
 
   it('renders ItemListPage', () => {

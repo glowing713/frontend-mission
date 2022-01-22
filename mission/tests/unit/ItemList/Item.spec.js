@@ -8,7 +8,7 @@ describe('ItemListItem', () => {
     wrapper = mount(ItemListItem);
   });
 
-  it('redners ItemListItem', () => {
+  it('renders ItemListItem', () => {
     expect(wrapper.find('.item-list-item').exists()).toBe(true);
   });
 
