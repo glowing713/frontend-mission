@@ -46,7 +46,7 @@ describe('ItemListItem', () => {
       const discountRate = wrapper.find('[data-test="discount-rate"]');
 
       expect(discountRate.exists()).toBe(true);
-      expect(discountRate.text()).toEqual(String(10)); // String 타입이라는 것을 명시하기 위해 형변환을 시킴
+      expect(discountRate.text()).toEqual(`${String(10)}%`); // String 타입이라는 것을 명시하기 위해 형변환을 시킴
     });
   });
 

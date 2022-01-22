@@ -5,9 +5,9 @@
     </div>
     <div data-test="content" class="content-container">
       <div data-test="price-info" class="price-info">
-        <span v-if="isOnSale" data-test="discount-rate" class="discount-rate">{{
-          discountRate
-        }}</span>
+        <span v-if="isOnSale" data-test="discount-rate" class="discount-rate">
+          {{ discountRate }}%
+        </span>
         <span data-test="price" class="price">{{ finalPrice }}</span>
       </div>
       <div class="market-info">
