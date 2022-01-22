@@ -1,6 +1,7 @@
 <template>
   <div class="item-list-item">
     <div data-test="thumbnail" class="thumbnail-container"></div>
+    <div data-test="content" class="content-container"></div>
   </div>
 </template>
 
