@@ -17,4 +17,10 @@ describe('ItemListItem', () => {
 
     expect(thumbnail.exists()).toBe(true);
   });
+
+  it('renders content container', () => {
+    const content = wrapper.find('[data-test="content"]');
+
+    expect(content.exists()).toBe(true);
+  });
 });
