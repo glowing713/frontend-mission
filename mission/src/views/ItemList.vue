@@ -1,6 +1,7 @@
 <template>
   <div id="item-list-page">
     <base-header />
+    <div data-test="item-lists-container" class="item-lists-container"></div>
     <base-nav />
   </div>
 </template>
