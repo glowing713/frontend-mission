@@ -23,4 +23,10 @@ describe('ItemListPage', () => {
 
     expect(nav.exists()).toBe(true);
   });
+
+  it('renders item lists container', () => {
+    const itemLists = wrapper.find('[data-test="item-lists-container"]');
+
+    expect(itemLists.exists()).toBe(true);
+  });
 });
