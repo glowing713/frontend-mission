@@ -75,7 +75,7 @@ describe('ItemListItem', () => {
       expect(sellCount.exists()).toBe(true);
     });
 
-    it('renders formatted number(toLocaleString)', async () => {
+    it('renders formatted number(toLocaleString)', () => {
       expect(sellCount.text()).toEqual(`${(1000).toLocaleString()}개 구매중`);
     });
   });
