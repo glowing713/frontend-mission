@@ -1,7 +1,7 @@
 <template>
   <div class="item-list-item">
     <div data-test="thumbnail" class="thumbnail-container">
-      <img :src="thumbnail" alt="404 not found" />
+      <img :src="thumbnail" :alt="productName" />
     </div>
     <div data-test="content" class="content-container">
       <div data-test="price-info" class="price-info">
