@@ -1,14 +1,14 @@
 import { mount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
+import Home from '@/views/Home.vue';
 
-describe('HelloWorld.vue', () => {
+describe('Home.vue', () => {
   let wrapper;
   let input;
   let button;
   let p;
 
   beforeEach(() => {
-    wrapper = mount(HelloWorld);
+    wrapper = mount(Home);
     input = wrapper.get('[data-test="text-input"]');
     button = wrapper.get('[data-test="rotate-btn"]');
     p = wrapper.get('[data-test="rotated-txt"]');
