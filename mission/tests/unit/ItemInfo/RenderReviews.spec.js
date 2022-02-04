@@ -11,7 +11,7 @@ describe('RenderReviews.vue', () => {
           {
             nickname: 'externship',
             generated: '2022.01.09',
-            info: {
+            userMeasure: {
               height: 175,
               weight: 70,
             },
@@ -23,7 +23,7 @@ describe('RenderReviews.vue', () => {
           {
             nickname: 'vueisfun',
             generated: '2022.01.14',
-            info: {
+            userMeasure: {
               height: 180,
               weight: 78,
             },
@@ -45,7 +45,7 @@ describe('RenderReviews.vue', () => {
   });
 
   it('renders review author info', () => {
-    const reviewInfo = wrapper.find('[data-test="review-info"]');
+    const reviewInfo = wrapper.find('[data-test="review-usermeasure"]');
     expect(reviewInfo.exists()).toBe(true);
   });
 

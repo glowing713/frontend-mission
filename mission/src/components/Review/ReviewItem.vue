@@ -5,7 +5,7 @@
         <p class="review-author" data-test="review-author">
           {{ blindName }}<span>{{ generated }}</span>
         </p>
-        <div class="review-userMeasure" data-test="review-userMeasure">
+        <div class="review-usermeasure" data-test="review-usermeasure">
           <p class="author-height">{{ userMeasure.height }}cm</p>
           <p class="author-weight">{{ userMeasure.weight }}kg</p>
         </div>
