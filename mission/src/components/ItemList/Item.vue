@@ -18,7 +18,7 @@
       </div>
       <div class="sell-info">
         <p v-if="sold" data-test="sell-count" class="sell-count">
-          {{ sold.toLocaleString() }}개 구매중
+          {{ soldCount }}개 구매중
         </p>
       </div>
     </div>
@@ -42,6 +42,9 @@ export default {
     },
     isOnSale() {
       return this.discountRate > 0;
+    },
+    soldCount() {
+      return this.sold.toLocaleString();
     },
   },
 };
