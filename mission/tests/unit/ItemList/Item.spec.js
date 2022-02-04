@@ -5,7 +5,17 @@ describe('ItemListItem', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(ItemListItem);
+    wrapper = mount(ItemListItem, {
+      propsData: {
+        id: 1,
+        thumbnail: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
+        price: 19900,
+        discountRate: 0,
+        marketName: '유니클로',
+        productName: 'Keith Haring UT(그래픽T-반팔)A',
+        sold: 1382,
+      },
+    });
   });
 
   it('renders ItemListItem', () => {
