@@ -1,7 +1,7 @@
 <template>
   <div class="item-list-item">
     <div data-test="thumbnail" class="thumbnail-container">
-      <img :src="thumbnail" :alt="productName" />
+      <img :src="thumbnail" :alt="description" />
     </div>
     <div data-test="content" class="content-container">
       <div data-test="price-info" class="price-info">
@@ -11,13 +11,13 @@
         <p data-test="price" class="price">{{ finalPrice }}</p>
       </div>
       <div class="market-info">
-        <p data-test="market-name" class="market-name">{{ marketName }}</p>
+        <p data-test="market-name" class="market-name">{{ productName }}</p>
       </div>
       <div class="item-info">
-        <p data-test="item-name" class="item-name">{{ productName }}</p>
+        <p data-test="item-name" class="item-name">{{ description }}</p>
       </div>
       <div class="sell-info">
-        <p v-if="sold" data-test="sell-count" class="sell-count">
+        <p data-test="sell-count" class="sell-count">
           {{ soldCount }}개 구매중
         </p>
       </div>
@@ -29,22 +29,30 @@
 export default {
   name: 'ItemListItem',
   props: {
-    thumbnail: String,
-    price: Number,
-    discountRate: Number,
-    marketName: String,
-    productName: String,
-    sold: Number,
+    thumbnail: { type: String, default: '' },
+    price: { type: Number, default: 0 },
+    originalPrice: { type: Number, default: 0 },
+    productName: { type: String, default: '' },
+    description: { type: String, default: '' },
+    sold: { type: Number, default: 0 },
   },
   computed: {
     finalPrice() {
-      return (this.price * (100 - this.discountRate) * 0.01).toLocaleString();
+      return this.price.toLocaleString();
     },
     isOnSale() {
-      return this.discountRate > 0;
+      return !(this.price === this.originalPrice);
     },
     soldCount() {
       return this.sold.toLocaleString();
+    },
+    discountRate() {
+      console.log(this.price);
+      console.log(this.originalPrice);
+      if (this.price === this.originalPrice) {
+        return 0;
+      }
+      return Math.ceil((this.price / this.originalPrice) * 100);
     },
   },
 };
