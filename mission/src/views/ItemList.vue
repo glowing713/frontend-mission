@@ -5,6 +5,7 @@
       <item-list-item
         v-for="item in itemList"
         :key="item.product_no"
+        :productNum="item.product_no"
         :thumbnail="item.image"
         :price="item.price"
         :originalPrice="item.original_price"
@@ -41,7 +42,6 @@ export default {
         data: { items },
       } = await MallRepository.getItems();
       this.itemList = items;
-      console.log(items);
     },
   },
 };

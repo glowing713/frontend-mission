@@ -1,34 +1,37 @@
 <template>
-  <div class="item-list-item">
-    <div data-test="thumbnail" class="thumbnail-container">
-      <img :src="thumbnail" :alt="description" />
+  <router-link :to="`/item/${productNum}`" data-test="to-item-info">
+    <div class="item-list-item">
+      <div data-test="thumbnail" class="thumbnail-container">
+        <img :src="thumbnail" :alt="description" />
+      </div>
+      <div data-test="content" class="content-container">
+        <div data-test="price-info" class="price-info">
+          <p v-if="isOnSale" data-test="discount-rate" class="discount-rate">
+            {{ discountRate }}%
+          </p>
+          <p data-test="price" class="price">{{ finalPrice }}</p>
+        </div>
+        <div class="market-info">
+          <p data-test="market-name" class="market-name">{{ productName }}</p>
+        </div>
+        <div class="item-info">
+          <p data-test="item-name" class="item-name">{{ description }}</p>
+        </div>
+        <div class="sell-info">
+          <p data-test="sell-count" class="sell-count">
+            {{ soldCount }}개 구매중
+          </p>
+        </div>
+      </div>
     </div>
-    <div data-test="content" class="content-container">
-      <div data-test="price-info" class="price-info">
-        <p v-if="isOnSale" data-test="discount-rate" class="discount-rate">
-          {{ discountRate }}%
-        </p>
-        <p data-test="price" class="price">{{ finalPrice }}</p>
-      </div>
-      <div class="market-info">
-        <p data-test="market-name" class="market-name">{{ productName }}</p>
-      </div>
-      <div class="item-info">
-        <p data-test="item-name" class="item-name">{{ description }}</p>
-      </div>
-      <div class="sell-info">
-        <p data-test="sell-count" class="sell-count">
-          {{ soldCount }}개 구매중
-        </p>
-      </div>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: 'ItemListItem',
   props: {
+    productNum: { type: String, default: '0' },
     thumbnail: { type: String, default: '' },
     price: { type: Number, default: 0 },
     originalPrice: { type: Number, default: 0 },
@@ -47,8 +50,6 @@ export default {
       return this.sold.toLocaleString();
     },
     discountRate() {
-      console.log(this.price);
-      console.log(this.originalPrice);
       if (this.price === this.originalPrice) {
         return 0;
       }
