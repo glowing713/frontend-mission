@@ -1,11 +1,16 @@
 import { mount } from '@vue/test-utils';
+
 import ItemListItem from '@/components/ItemList/Item.vue';
+import router from '@/router';
 
 describe('ItemListItem', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = mount(ItemListItem, {
+      global: {
+        plugins: [router],
+      },
       propsData: {
         productNum: '1234',
         thumbnail: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
