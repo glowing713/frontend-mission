@@ -7,12 +7,12 @@ describe('ItemListItem', () => {
   beforeEach(() => {
     wrapper = mount(ItemListItem, {
       propsData: {
-        id: 1,
+        productNum: '1234',
         thumbnail: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
         price: 19900,
-        discountRate: 0,
-        marketName: '유니클로',
-        productName: 'Keith Haring UT(그래픽T-반팔)A',
+        originalPrice: 20000,
+        productName: '유니클로 반팔 티셔츠',
+        description: 'Keith Haring UT(그래픽T-반팔)A',
         sold: 1382,
       },
     });
@@ -46,17 +46,17 @@ describe('ItemListItem', () => {
     });
 
     it('shows discounted price if item is on sale', async () => {
-      await wrapper.setProps({ price: 10000, discountRate: 10 });
+      await wrapper.setProps({ price: 10000, originalPrice: 15000 });
 
-      expect(contentPrice.text()).toEqual((10000 * 0.9).toLocaleString());
+      expect(contentPrice.text()).toEqual((10000).toLocaleString());
     });
 
     it('renders discount rate if item is on sale', async () => {
-      await wrapper.setProps({ price: 10000, discountRate: 10 });
+      await wrapper.setProps({ price: 10000, originalPrice: 15000 });
       const discountRate = wrapper.find('[data-test="discount-rate"]');
 
       expect(discountRate.exists()).toBe(true);
-      expect(discountRate.text()).toEqual('10%');
+      expect(discountRate.text()).toEqual(`${Math.ceil((10000 / 15000) * 100)}%`);
     });
   });
 
