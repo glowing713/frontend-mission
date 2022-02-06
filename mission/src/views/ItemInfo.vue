@@ -3,7 +3,7 @@
     <div class="container">
       <div class="product-info">
         <!-- thumbnail -->
-        <image-slider :imgUrls="product.thumbnails" />
+        <image-slider :imgUrl="product.image" :alt="product.name"/>
         <!-- seller-info -->
         <seller-info v-bind="seller" />
         <!-- basic-info -->
@@ -31,9 +31,10 @@ import LikeBuyButtons from '@/components/ItemInfo/LikeBuyButtons.vue';
 import ImageSlider from '@/components/ItemInfo/ImageSlider.vue';
 import ProductInfo from '@/components/ItemInfo/ProductInfo.vue';
 
+import MallRepository from '@/repositories/MallRepository';
 import DrMartinSeller from '@/assets/DrMartin/DrMartinSeller';
 import DrMartinReviews from '@/assets/DrMartin/DrMartinReviews';
-import DrMartinInfo from '@/assets/DrMartin/DrMartinInfo';
+// import DrMartinInfo from '@/assets/DrMartin/DrMartinInfo';
 import DrMartinDetails from '@/assets/DrMartin/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
 
 export default {
@@ -47,17 +48,49 @@ export default {
   },
   data() {
     return {
-      product: DrMartinInfo,
+      product: {
+        description: '',
+        image: '',
+        name: '',
+        original_price: 0,
+        price: 0,
+        product_no: '',
+        reviews: [
+          {
+            content: '',
+            created: '',
+            img: '',
+            likes_count: 0,
+            review_no: 0,
+            title: '',
+            writer: '',
+          },
+        ],
+        seller: {
+          hash_tags: [],
+          name: '',
+          profile_image: '',
+          seller_no: 0,
+        },
+      },
       detailInfo: DrMartinDetails,
       seller: DrMartinSeller,
       reviews: DrMartinReviews,
     };
   },
-  methods: {},
+  created() {
+    this.setItemInfo();
+  },
+  methods: {
+    async setItemInfo() {
+      const { data: { item } } = await MallRepository.getItemInfo(this.$route.params.id);
+      console.log(item);
+      this.product = item;
+    },
+  },
   computed: {
     finalPrice() {
-      const price = this.product.price * (100 - this.product.discountRate) * 0.01;
-      return price.toLocaleString();
+      return this.product.price.toLocaleString();
     },
   },
 };

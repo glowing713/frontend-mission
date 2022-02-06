@@ -1,6 +1,6 @@
 <template>
   <div class="thumbnail" data-test="product-img">
-    <img :src="imgUrls[0]" alt="product-img">
+    <img :src="imgUrl" :alt="alt">
   </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
   name: 'ImageSlider',
   props: {
-    imgUrls: Array,
+    imgUrl: String,
+    alt: String,
   },
   data() {
     return {
