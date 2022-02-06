@@ -7,27 +7,15 @@ describe('RenderReviews.vue', () => {
   beforeEach(() => {
     wrapper = mount(RenderReviews, {
       propsData: {
-        photoReviews: [
+        reviews: [
           {
-            nickname: 'externship',
-            generated: '2022.01.09',
-            userMeasure: {
-              height: 175,
-              weight: 70,
-            },
-            imageSrc: 'https://sunhwan-ably-externship-s3-bucket.s3.ap-northeast-2.amazonaws.com/review01.jpeg',
-            text: '너무 이뻐요!!',
-          },
-        ],
-        textReviews: [
-          {
-            nickname: 'vueisfun',
-            generated: '2022.01.14',
-            userMeasure: {
-              height: 180,
-              weight: 78,
-            },
-            text: '반 사이즈 업으로 사세요~!',
+            writer: 'gl****',
+            created: '2021.12.04',
+            img: 'https://projectlion-vue.s3.ap-northeast-2.amazonaws.com/items/example.jpg',
+            title: '만족해요',
+            content: '핏이 아주 잘 맞습니다. 대만족!',
+            likes_count: 7,
+            review_no: 1,
           },
         ],
       },
@@ -44,9 +32,14 @@ describe('RenderReviews.vue', () => {
     expect(reviewAuthor.exists()).toBe(true);
   });
 
-  it('renders review author info', () => {
-    const reviewInfo = wrapper.find('[data-test="review-usermeasure"]');
-    expect(reviewInfo.exists()).toBe(true);
+  it('renders review title', () => {
+    const reviewTitle = wrapper.find('[data-test="review-title"]');
+    expect(reviewTitle.exists()).toBe(true);
+  });
+
+  it('renders review likes', () => {
+    const reviewLikes = wrapper.find('[data-test="review-likes"]');
+    expect(reviewLikes.exists()).toBe(true);
   });
 
   it('renders review content', () => {

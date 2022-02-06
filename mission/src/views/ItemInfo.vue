@@ -21,7 +21,7 @@
           data-test="product-details"
           v-html="product.description"
         ></div>
-        <render-reviews v-bind="reviews" />
+        <render-reviews :reviews="product.reviews" />
       </div>
     </div>
     <like-buy-buttons :price="finalPrice" />
@@ -36,10 +36,6 @@ import ImageSlider from '@/components/ItemInfo/ImageSlider.vue';
 import ProductInfo from '@/components/ItemInfo/ProductInfo.vue';
 
 import MallRepository from '@/repositories/MallRepository';
-import DrMartinSeller from '@/assets/DrMartin/DrMartinSeller';
-import DrMartinReviews from '@/assets/DrMartin/DrMartinReviews';
-// import DrMartinInfo from '@/assets/DrMartin/DrMartinInfo';
-import DrMartinDetails from '@/assets/DrMartin/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
 
 export default {
   name: 'ItemInfoPage',
@@ -77,9 +73,6 @@ export default {
           seller_no: 0,
         },
       },
-      detailInfo: DrMartinDetails,
-      seller: DrMartinSeller,
-      reviews: DrMartinReviews,
     };
   },
   created() {
@@ -90,7 +83,6 @@ export default {
       const {
         data: { item },
       } = await MallRepository.getItemInfo(this.$route.params.id);
-      console.log(item);
       this.product = item;
     },
   },

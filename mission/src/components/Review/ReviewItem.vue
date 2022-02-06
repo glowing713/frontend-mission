@@ -1,14 +1,12 @@
 <template>
   <div class="review-item">
     <div class="review-text">
-      <div class="author-userMeasure">
+      <p class="review-title" data-test="review-title">{{ title }}</p>
+      <div class="author-info">
         <p class="review-author" data-test="review-author">
-          {{ blindName }}<span>{{ generated }}</span>
+          {{ nickname }}<span>{{ generated }}</span
+          ><span data-test="review-likes">좋아요 {{ likes_count }}개</span>
         </p>
-        <div class="review-usermeasure" data-test="review-usermeasure">
-          <p class="author-height">{{ userMeasure.height }}cm</p>
-          <p class="author-weight">{{ userMeasure.weight }}kg</p>
-        </div>
       </div>
       <p class="review-content" data-test="review-content">{{ review }}</p>
     </div>
@@ -28,17 +26,11 @@ export default {
   props: {
     nickname: String,
     generated: String,
-    userMeasure: Object,
     imageSrc: String,
+    title: String,
     review: String,
-  },
-  computed: {
-    blindName() {
-      const blindName = `${this.nickname.slice(0, 2)}${'*'.repeat(
-        this.nickname.slice(2).length,
-      )}`;
-      return blindName;
-    },
+    likes_count: Number,
+    review_no: Number,
   },
 };
 </script>
