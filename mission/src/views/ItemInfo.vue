@@ -5,7 +5,7 @@
         <!-- thumbnail -->
         <image-slider :imgUrl="product.image" :alt="product.name"/>
         <!-- seller-info -->
-        <seller-info v-bind="seller" />
+        <seller-info v-bind="product.seller" />
         <!-- basic-info -->
         <product-info v-bind="product" />
       </div>
