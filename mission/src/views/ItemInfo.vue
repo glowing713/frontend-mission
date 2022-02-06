@@ -95,10 +95,6 @@ export default {
 </script>
 
 <style scoped>
-#brandiProductDetailApi img {
-  width: 100%;
-}
-
 .container {
   padding-bottom: 100px;
 }
