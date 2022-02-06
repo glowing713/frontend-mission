@@ -60,6 +60,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .item-list-item {
   display: flex;
   flex-direction: column;
