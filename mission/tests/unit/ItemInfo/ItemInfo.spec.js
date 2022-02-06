@@ -5,7 +5,17 @@ describe('ItemInfoPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(ItemInfoPage);
+    wrapper = mount(ItemInfoPage, {
+      global: {
+        mocks: {
+          $route: {
+            params: {
+              id: 'abcd123',
+            },
+          },
+        },
+      },
+    });
   });
 
   it('renders ItemInfoPage', () => {
