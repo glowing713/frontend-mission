@@ -2,11 +2,10 @@
   <div class="review-item">
     <div class="review-text">
       <p class="review-title" data-test="review-title">{{ title }}</p>
-      <div class="author-info">
-        <p class="review-author" data-test="review-author">
-          {{ nickname }}<span>{{ generated }}</span
-          ><span data-test="review-likes">좋아요 {{ likes_count }}개</span>
-        </p>
+      <div class="review-author" data-test="review-author">
+        <p>{{ nickname }}</p>
+        <p>{{ generated }}</p>
+        <p class="review-likes" data-test="review-likes">좋아요 {{ likes_count }}개</p>
       </div>
       <p class="review-content" data-test="review-content">{{ review }}</p>
     </div>
@@ -36,6 +35,15 @@ export default {
 </script>
 
 <style>
+.review-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  color: #1f1f1f;
+  margin: 0;
+  text-align: left;
+}
+
 .review-item {
   border-top: 1px solid;
   border-color: black;
@@ -64,20 +72,25 @@ export default {
 }
 
 .review-author {
-  margin: 0;
-  font-size: 19px;
-  font-weight: bold;
-  color: black;
+  margin: 6px 0 15px 0;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 
-.review-author span {
-  margin-left: 17px;
-  color: #8d8d8d;
+.review-author p {
+  margin: 0;
+  margin-right: 9px;
+  color: #9e9e9e;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -.6px;
+}
+
+.review-author .review-likes {
+  color: #6093fc;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .review-userMeasure {
