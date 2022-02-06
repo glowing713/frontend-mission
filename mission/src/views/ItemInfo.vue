@@ -3,11 +3,15 @@
     <div class="container">
       <div class="product-info">
         <!-- thumbnail -->
-        <image-slider :imgUrl="product.image" :alt="product.name"/>
+        <image-slider :imgUrl="product.image" :alt="product.name" />
         <!-- seller-info -->
         <seller-info v-bind="product.seller" />
         <!-- basic-info -->
-        <product-info v-bind="product" />
+        <product-info
+          :name="product.name"
+          :price="product.price"
+          :original_price="product.original_price"
+        />
       </div>
 
       <!-- additional info -->
@@ -15,7 +19,7 @@
         <div
           class="product-details"
           data-test="product-details"
-          v-html="detailInfo"
+          v-html="product.description"
         ></div>
         <render-reviews v-bind="reviews" />
       </div>
@@ -83,7 +87,9 @@ export default {
   },
   methods: {
     async setItemInfo() {
-      const { data: { item } } = await MallRepository.getItemInfo(this.$route.params.id);
+      const {
+        data: { item },
+      } = await MallRepository.getItemInfo(this.$route.params.id);
       console.log(item);
       this.product = item;
     },
