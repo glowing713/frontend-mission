@@ -50,12 +50,12 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .discount-rate {
   font-weight: bold;
-  color: #C9974E;
+  color: #ff5160;
   display: flex;
   align-items: flex-end;
   margin: 0 2px 0 0;
