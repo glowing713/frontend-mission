@@ -25,7 +25,7 @@ export default {
       if (this.price === this.original_price) {
         return 0;
       }
-      return Math.ceil((this.price / this.original_price) * 100);
+      return Math.ceil((1 - this.price / this.original_price) * 100);
     },
     finalPrice() {
       return this.price.toLocaleString();

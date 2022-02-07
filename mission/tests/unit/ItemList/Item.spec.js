@@ -61,7 +61,7 @@ describe('ItemListItem', () => {
       const discountRate = wrapper.find('[data-test="discount-rate"]');
 
       expect(discountRate.exists()).toBe(true);
-      expect(discountRate.text()).toEqual(`${Math.ceil((10000 / 15000) * 100)}%`);
+      expect(discountRate.text()).toEqual(`${Math.ceil((1 - 10000 / 15000) * 100)}%`);
     });
   });
 

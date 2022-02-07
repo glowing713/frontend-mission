@@ -53,7 +53,7 @@ export default {
       if (this.price === this.originalPrice) {
         return 0;
       }
-      return Math.ceil((this.price / this.originalPrice) * 100);
+      return Math.ceil((1 - this.price / this.originalPrice) * 100);
     },
   },
 };
