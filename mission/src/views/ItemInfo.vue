@@ -35,7 +35,7 @@ import LikeBuyButtons from '@/components/ItemInfo/LikeBuyButtons.vue';
 import ImageSlider from '@/components/ItemInfo/ImageSlider.vue';
 import ProductInfo from '@/components/ItemInfo/ProductInfo.vue';
 
-import MallRepository from '@/repositories/MallRepository';
+import ApiRepository from '@/repositories/ApiRepository';
 
 export default {
   name: 'ItemInfoPage',
@@ -80,10 +80,10 @@ export default {
   },
   methods: {
     async setItemInfo() {
-      const {
-        data: { item },
-      } = await MallRepository.getItemInfo(this.$route.params.id);
-      this.product = item;
+      const productId = this.$route.params.id;
+      const apiClient = new ApiRepository();
+      const response = await apiClient.getItemInfo(productId);
+      this.product = response.data.item;
     },
   },
   computed: {

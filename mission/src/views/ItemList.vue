@@ -23,7 +23,7 @@ import BaseHeader from '@/components/BaseComponent/BaseHeader.vue';
 import BaseNav from '@/components/BaseComponent/BaseNav.vue';
 import ItemListItem from '@/components/ItemList/Item.vue';
 
-import MallRepository from '@/repositories/MallRepository';
+import ApiRepository from '@/repositories/ApiRepository';
 
 export default {
   name: 'ItemListPage',
@@ -34,14 +34,13 @@ export default {
     };
   },
   created() {
-    this.getItemList();
+    this.setItemList();
   },
   methods: {
-    async getItemList() {
-      const {
-        data: { items },
-      } = await MallRepository.getItems();
-      this.itemList = items;
+    async setItemList() {
+      const apiClient = new ApiRepository();
+      const response = await apiClient.getItems();
+      this.itemList = response.data.items;
     },
   },
 };
