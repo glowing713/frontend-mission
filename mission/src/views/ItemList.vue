@@ -4,13 +4,14 @@
     <div data-test="item-list-container" class="item-list-container">
       <item-list-item
         v-for="item in itemList"
-        :key="item.id"
-        :thumbnail="item.thumbnail"
+        :key="item.product_no"
+        :productNum="item.product_no"
+        :thumbnail="item.image"
         :price="item.price"
-        :discountRate="item.discountRate"
-        :marketName="item.marketName"
-        :productName="item.productName"
-        :sold="item.sold"
+        :originalPrice="item.original_price"
+        :productName="item.name"
+        :description="item.description"
+        :sold="1247"
       />
     </div>
     <base-nav />
@@ -22,7 +23,7 @@ import BaseHeader from '@/components/BaseComponent/BaseHeader.vue';
 import BaseNav from '@/components/BaseComponent/BaseNav.vue';
 import ItemListItem from '@/components/ItemList/Item.vue';
 
-import itemList from '@/assets/ItemList/itemList';
+import ApiRepository from '@/repositories/ApiRepository';
 
 export default {
   name: 'ItemListPage',
@@ -32,18 +33,15 @@ export default {
       itemList: [],
     };
   },
-  methods: {
-    getApiData() {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          console.log('Getting item list from server...🏃🏻‍♂️');
-          resolve(itemList);
-        }, 1000);
-      });
-    },
-  },
   created() {
-    this.getApiData().then((apiData) => { this.itemList = apiData; });
+    this.setItemList();
+  },
+  methods: {
+    async setItemList() {
+      const apiClient = new ApiRepository();
+      const response = await apiClient.getItems();
+      this.itemList = response.data.items;
+    },
   },
 };
 </script>

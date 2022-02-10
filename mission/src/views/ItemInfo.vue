@@ -3,11 +3,15 @@
     <div class="container">
       <div class="product-info">
         <!-- thumbnail -->
-        <image-slider :imgUrls="product.thumbnails" />
+        <image-slider :imgUrl="product.image" :alt="product.name" />
         <!-- seller-info -->
-        <seller-info v-bind="seller" />
+        <seller-info v-bind="product.seller" />
         <!-- basic-info -->
-        <product-info v-bind="product" />
+        <product-info
+          :name="product.name"
+          :price="product.price"
+          :original_price="product.original_price"
+        />
       </div>
 
       <!-- additional info -->
@@ -15,9 +19,9 @@
         <div
           class="product-details"
           data-test="product-details"
-          v-html="detailInfo"
+          v-html="product.description"
         ></div>
-        <render-reviews v-bind="reviews" />
+        <render-reviews :reviews="product.reviews" />
       </div>
     </div>
     <like-buy-buttons :price="finalPrice" />
@@ -31,10 +35,7 @@ import LikeBuyButtons from '@/components/ItemInfo/LikeBuyButtons.vue';
 import ImageSlider from '@/components/ItemInfo/ImageSlider.vue';
 import ProductInfo from '@/components/ItemInfo/ProductInfo.vue';
 
-import DrMartinSeller from '@/assets/DrMartin/DrMartinSeller';
-import DrMartinReviews from '@/assets/DrMartin/DrMartinReviews';
-import DrMartinInfo from '@/assets/DrMartin/DrMartinInfo';
-import DrMartinDetails from '@/assets/DrMartin/DrMartinDetails'; // 닥터마틴 제품 상세설명(출처: 하이버)
+import ApiRepository from '@/repositories/ApiRepository';
 
 export default {
   name: 'ItemInfoPage',
@@ -47,27 +48,53 @@ export default {
   },
   data() {
     return {
-      product: DrMartinInfo,
-      detailInfo: DrMartinDetails,
-      seller: DrMartinSeller,
-      reviews: DrMartinReviews,
+      product: {
+        description: '',
+        image: '',
+        name: '',
+        original_price: 0,
+        price: 0,
+        product_no: '',
+        reviews: [
+          {
+            content: '',
+            created: '',
+            img: '',
+            likes_count: 0,
+            review_no: 0,
+            title: '',
+            writer: '',
+          },
+        ],
+        seller: {
+          hash_tags: [],
+          name: '',
+          profile_image: '',
+          seller_no: 0,
+        },
+      },
     };
   },
-  methods: {},
+  created() {
+    this.setItemInfo();
+  },
+  methods: {
+    async setItemInfo() {
+      const productId = this.$route.params.id;
+      const apiClient = new ApiRepository();
+      const response = await apiClient.getItemInfo(productId);
+      this.product = response.data.item;
+    },
+  },
   computed: {
     finalPrice() {
-      const price = this.product.price * (100 - this.product.discountRate) * 0.01;
-      return price.toLocaleString();
+      return this.product.price.toLocaleString();
     },
   },
 };
 </script>
 
 <style scoped>
-#brandiProductDetailApi img {
-  width: 100%;
-}
-
 .container {
   padding-bottom: 100px;
 }

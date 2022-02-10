@@ -2,26 +2,17 @@
   <div class="product-reviews" data-test="product-reviews">
     <div class="review-contents" data-test="review-contents">
       <div class="photo-reviews">
-        <p class="pr-title">포토리뷰 <span>{{photoReviews.length}}</span></p>
+        <p class="pr-title">포토리뷰 <span>{{reviews.length}}</span></p>
         <review-item
-          v-for="(review, idx) in photoReviews"
-          :key="idx"
-          :nickname="review.nickname"
-          :generated="review.generated"
-          :userMeasure="review.userMeasure"
-          :imageSrc="review.imageSrc"
-          :review="review.text"
-        />
-      </div>
-      <div class="text-reviews">
-        <p class="tr-title">텍스트리뷰 <span>{{textReviews.length}}</span></p>
-        <review-item
-          v-for="(review, idx) in textReviews"
-          :key="idx"
-          :nickname="review.nickname"
-          :generated="review.generated"
-          :userMeasure="review.userMeasure"
-          :review="review.text"
+          v-for="review in reviews"
+          :key="review.review_no"
+          :nickname="review.writer"
+          :generated="review.created"
+          :imageSrc="review.img"
+          :title="review.title"
+          :review="review.content"
+          :likes_count="review.likes_count"
+          :review_no="review.review_no"
         />
       </div>
     </div>
@@ -35,14 +26,13 @@ export default {
   name: 'RenderReviews',
   components: { ReviewItem },
   props: {
-    photoReviews: Array,
-    textReviews: Array,
+    reviews: Array,
   },
 };
 </script>
 
 <style>
-.pr-title, .tr-title {
+.pr-title {
   margin-left: 20px;
   font-size: 19px;
   font-weight: bold;
@@ -51,7 +41,7 @@ export default {
   justify-content: flex-start;
 }
 
-.pr-title span, .tr-title span {
+.pr-title span {
   margin-left: 5px;
   color: #8D8D8D;
 }

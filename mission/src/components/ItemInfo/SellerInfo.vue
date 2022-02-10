@@ -1,12 +1,12 @@
 <template>
   <div class="seller-info" data-test="seller-info">
     <div class="seller-logo-name">
-      <img :src="logoSrc" alt="seller-img" data-test="seller-img"/>
-      <p data-test="seller-name">{{ sellerName }}</p>
+      <img :src="profile_image" :alt="name" data-test="seller-img"/>
+      <p data-test="seller-name">{{ name }}</p>
     </div>
     <div class="seller-tags" data-test="seller-tags">
-      <p v-for="seller in sellerTags" :key="seller.id" data-test="seller-tag">
-        {{ seller.tag }}
+      <p v-for="tag in hash_tags" :key="tag" data-test="seller-tag">
+        #{{ tag }}
       </p>
     </div>
   </div>
@@ -16,9 +16,10 @@
 export default {
   name: 'SellerInfo',
   props: {
-    logoSrc: String,
-    sellerName: String,
-    sellerTags: Array,
+    profile_image: { type: String, default: '' },
+    name: { type: String, default: '' },
+    hash_tags: { type: Array, default: () => [] },
+    seller_no: { type: Number, default: 0 },
   },
 };
 </script>

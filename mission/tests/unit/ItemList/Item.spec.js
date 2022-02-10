@@ -1,11 +1,26 @@
 import { mount } from '@vue/test-utils';
+
 import ItemListItem from '@/components/ItemList/Item.vue';
+import router from '@/router';
 
 describe('ItemListItem', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(ItemListItem);
+    wrapper = mount(ItemListItem, {
+      global: {
+        plugins: [router],
+      },
+      propsData: {
+        productNum: '1234',
+        thumbnail: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
+        price: 19900,
+        originalPrice: 20000,
+        productName: '유니클로 반팔 티셔츠',
+        description: 'Keith Haring UT(그래픽T-반팔)A',
+        sold: 1382,
+      },
+    });
   });
 
   it('renders ItemListItem', () => {
@@ -36,17 +51,17 @@ describe('ItemListItem', () => {
     });
 
     it('shows discounted price if item is on sale', async () => {
-      await wrapper.setProps({ price: 10000, discountRate: 10 });
+      await wrapper.setProps({ price: 10000, originalPrice: 15000 });
 
-      expect(contentPrice.text()).toEqual((10000 * 0.9).toLocaleString());
+      expect(contentPrice.text()).toEqual((10000).toLocaleString());
     });
 
     it('renders discount rate if item is on sale', async () => {
-      await wrapper.setProps({ price: 10000, discountRate: 10 });
+      await wrapper.setProps({ price: 10000, originalPrice: 15000 });
       const discountRate = wrapper.find('[data-test="discount-rate"]');
 
       expect(discountRate.exists()).toBe(true);
-      expect(discountRate.text()).toEqual(`${String(10)}%`); // String 타입이라는 것을 명시하기 위해 형변환을 시킴
+      expect(discountRate.text()).toEqual(`${Math.ceil((1 - 10000 / 15000) * 100)}%`);
     });
   });
 

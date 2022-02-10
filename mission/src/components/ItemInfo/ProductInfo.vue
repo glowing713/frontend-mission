@@ -2,9 +2,9 @@
   <div class="basic-info">
     <div class="product-name" data-test="product-name">{{ name }}</div>
     <div class="product-price" data-test="product-price">
-      <span class="discount-rate" v-if="discount">{{ discountRate }}%</span>
+      <span class="discount-rate" v-if="isOnSale">{{ discountRate }}%</span>
       <span class="origin-price">{{ finalPrice }}</span>
-      <span class="discount-origin-price" v-if="discount">{{ colonNumber }}</span>
+      <span class="discount-origin-price" v-if="isOnSale">{{ originalPrice }}</span>
     </div>
   </div>
 </template>
@@ -13,24 +13,25 @@
 export default {
   name: 'ProductInfo',
   props: {
-    name: String,
-    price: Number,
-    discountRate: Number,
-    details: String,
-    thumbnails: Array,
-  },
-  data() {
-    return {
-      discount: this.discountRate > 0,
-    };
+    name: { type: String, default: '' },
+    price: { type: Number, default: 0 },
+    original_price: { type: Number, default: 0 },
   },
   computed: {
-    finalPrice() {
-      const price = this.price * (100 - this.discountRate) * 0.01;
-      return price.toLocaleString();
+    isOnSale() {
+      return !(this.price === this.original_price);
     },
-    colonNumber() {
+    discountRate() {
+      if (this.price === this.original_price) {
+        return 0;
+      }
+      return Math.ceil((1 - this.price / this.original_price) * 100);
+    },
+    finalPrice() {
       return this.price.toLocaleString();
+    },
+    originalPrice() {
+      return this.original_price.toLocaleString();
     },
   },
 };
@@ -49,12 +50,12 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .discount-rate {
   font-weight: bold;
-  color: #C9974E;
+  color: #ff5160;
   display: flex;
   align-items: flex-end;
   margin: 0 2px 0 0;
