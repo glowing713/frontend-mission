@@ -1,13 +1,6 @@
 import { mount } from '@vue/test-utils';
 import CartPage from '@/views/CartPage.vue';
 
-const mockGetItems = jest.fn();
-const mockGetItemInfo = jest.fn();
-jest.mock('@/repositories/ApiRepository', () => jest.fn().mockImplementation(() => ({
-  getItems: mockGetItems,
-  getItemInfo: mockGetItemInfo,
-})));
-
 describe('CartPage', () => {
   let wrapper;
 
