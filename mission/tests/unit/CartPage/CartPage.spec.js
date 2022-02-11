@@ -13,4 +13,10 @@ describe('CartPage', () => {
 
     expect(container.exists()).toBe(true);
   });
+
+  it('contains back button in header', () => {
+    const backButton = wrapper.find('[data-test="go-back-button"]');
+
+    expect(backButton.exists()).toBe(true);
+  });
 });
