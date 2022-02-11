@@ -7,7 +7,7 @@
       <router-link to="/"
         ><li><i :class="['fas', 'fa-search']" /></li
       ></router-link>
-      <router-link to="/cart"
+      <router-link to="/cart" data-test="cart-link"
         ><li><i :class="['fas', 'fa-shopping-cart']" /></li
       ></router-link>
       <router-link to="/"
