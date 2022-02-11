@@ -19,6 +19,12 @@ describe('CartPage', () => {
 
     expect(backButton.exists()).toBe(true);
   });
+
+  it('contains page title in header', () => {
+    const pageTitle = wrapper.find('[data-test="page-title"]');
+
+    expect(pageTitle.exists()).toBe(true);
+  });
 });
 
 describe('Routing test', () => {
