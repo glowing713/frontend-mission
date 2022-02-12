@@ -15,7 +15,6 @@ describe('CartItem', () => {
         description: 'Keith Haring UT(그래픽T-반팔)A',
       },
     });
-    console.log(wrapper.html());
   });
 
   it('renders cart item container', () => {
@@ -28,5 +27,11 @@ describe('CartItem', () => {
     const checkbox = wrapper.find('input[type="checkbox"]');
 
     expect(checkbox.exists()).toBe(true);
+  });
+
+  it('renders product image', () => {
+    const image = wrapper.find('[data-test="product-image"]');
+
+    expect(image.exists()).toBe(true);
   });
 });
