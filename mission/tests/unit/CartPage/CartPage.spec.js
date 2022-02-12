@@ -3,7 +3,16 @@ import CartPage from '@/views/CartPage.vue';
 
 const $store = {
   state: {
-    cartItems: [],
+    cartItems: [
+      {
+        product_no: '',
+        name: '',
+        image: '',
+        price: 0,
+        original_price: 0,
+        description: '',
+      },
+    ],
   },
   commit: jest.fn(),
 };
@@ -72,5 +81,14 @@ describe('store test', () => {
   it('commits setCartItems mutation on created hook', () => {
     expect($store.commit).toHaveBeenCalled();
     expect($store.commit).toHaveBeenCalledWith('setCartItems');
+  });
+
+  it('commits delCartItem mutation on delete-item event', async () => {
+    const itemComponent = wrapper.findComponent({ name: 'CartItem' });
+    const productNum = 'test num';
+    itemComponent.vm.$emit('deleteItem', productNum);
+
+    expect($store.commit).toHaveBeenCalled();
+    expect($store.commit).toHaveBeenLastCalledWith('delCartItem', productNum);
   });
 });
