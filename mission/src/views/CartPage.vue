@@ -3,6 +3,7 @@
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
       <content-header />
+      <content-footer />
     </div>
   </div>
 </template>
@@ -10,10 +11,11 @@
 <script>
 import CartHeader from '@/components/CartPage/CartHeader.vue';
 import ContentHeader from '@/components/CartPage/ContentHeader.vue';
+import ContentFooter from '@/components/CartPage/ContentFooter.vue';
 
 export default {
   name: 'CartPage',
-  components: { CartHeader, ContentHeader },
+  components: { CartHeader, ContentHeader, ContentFooter },
 };
 </script>
 
