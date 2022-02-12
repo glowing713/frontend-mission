@@ -58,4 +58,27 @@ describe('CartItem', () => {
 
     expect(wrapper.find('[data-test="original-price"]').exists()).toBe(false);
   });
+
+  it('renders delete button', () => {
+    const deleteBtn = wrapper.find('[data-test="delete-button"]');
+
+    expect(deleteBtn.exists()).toBe(true);
+  });
+
+  it('emits deleteItem event', async () => {
+    const deleteBtn = wrapper.find('[data-test="delete-button"]');
+    await deleteBtn.trigger('click');
+
+    expect(wrapper.emitted()).toHaveProperty('deleteItem');
+  });
+
+  it('emits deleteItem event with product_no', async () => {
+    const productNo = 'test num';
+    await wrapper.setProps({ productNo });
+    const deleteBtn = wrapper.find('[data-test="delete-button"]');
+    await deleteBtn.trigger('click');
+    const emitParameter = wrapper.emitted('deleteItem')[0][0];
+
+    expect(emitParameter).toEqual(productNo);
+  });
 });
