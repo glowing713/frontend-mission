@@ -6,17 +6,16 @@ describe('CartItem', () => {
 
   beforeEach(() => {
     wrapper = mount(CartItem, {
-      propData() {
-        return {
-          product_no: '',
-          name: '',
-          image: '',
-          price: 0,
-          original_price: 0,
-          description: '',
-        };
+      propsData: {
+        productNo: 'qwr1234',
+        name: '유니클로 반팔 티셔츠',
+        image: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
+        price: 19900,
+        originalPrice: 20000,
+        description: 'Keith Haring UT(그래픽T-반팔)A',
       },
     });
+    console.log(wrapper.html());
   });
 
   it('renders cart item container', () => {

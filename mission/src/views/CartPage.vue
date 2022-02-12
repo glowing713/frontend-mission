@@ -5,6 +5,16 @@
       <content-header />
       <div class="cart-products" data-test="cart-product-container">
         <p class="title">배송상품</p>
+        <cart-item
+          v-for="item in cartItems"
+          :key="item.product_no"
+          :product-no="item.product_no"
+          :name="item.name"
+          :image="item.image"
+          :price="item.price"
+          :original-price="item.original_price"
+          :description="item.description"
+        />
       </div>
       <content-footer />
     </div>
@@ -15,10 +25,16 @@
 import CartHeader from '@/components/CartPage/CartHeader.vue';
 import ContentHeader from '@/components/CartPage/ContentHeader.vue';
 import ContentFooter from '@/components/CartPage/ContentFooter.vue';
+import CartItem from '@/components/CartPage/CartItem.vue';
 
 export default {
   name: 'CartPage',
-  components: { CartHeader, ContentHeader, ContentFooter },
+  components: {
+    CartHeader,
+    ContentHeader,
+    ContentFooter,
+    CartItem,
+  },
   computed: {
     cartItems() {
       return this.$store.state.cartItems;
