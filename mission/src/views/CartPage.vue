@@ -2,31 +2,22 @@
   <div class="cart-page" data-test="cart-page">
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
-      <div class="sticky-header" data-test="cart-sticky-header">
-        <p>
-          <input type="checkbox" class="select-all" data-test="select-all" />
-          <label for="select-all">전체선택 (2/2)</label>
-        </p>
-        <p>
-          <button class="delete-items" data-test="delete-items">
-            선택삭제
-          </button>
-        </p>
-      </div>
+      <content-header />
     </div>
   </div>
 </template>
 
 <script>
 import CartHeader from '@/components/CartPage/CartHeader.vue';
+import ContentHeader from '@/components/CartPage/ContentHeader.vue';
 
 export default {
   name: 'CartPage',
-  components: { CartHeader },
+  components: { CartHeader, ContentHeader },
 };
 </script>
 
-<style scoped>
+<style>
 p {
   margin: 0;
   display: inline-block;
@@ -45,31 +36,5 @@ p {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.sticky-header {
-  height: 27px;
-  padding: 15px 25px 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 57px;
-  background-color: white;
-}
-
-.select-all {
-  transform: scale(1.3);
-}
-
-.select-all ~ label {
-  color: #777;
-  font-size: 15px;
-  margin-left: 7px;
-}
-
-.delete-items {
-  padding: 2px 10px 2px 10px;
-  font-size: 15px;
-  font-weight: 600;
 }
 </style>
