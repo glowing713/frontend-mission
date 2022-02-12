@@ -6,8 +6,16 @@
     <div class="item-info">
       <img :src="image" :alt="description" data-test="product-image" />
       <div class="text-info">
-        <p data-test="product-name">{{ name }}</p>
-        <p data-test="product-description">{{ description }}</p>
+        <p class="product-name" data-test="product-name">{{ name }}</p>
+        <p class="product-description" data-test="product-description">
+          {{ description }}
+        </p>
+        <p class="product-price" data-test="product-price">
+          <span class="original-price" data-test="original-price">{{
+            originalPrice
+          }}</span>
+          <span class="final-price" data-test="final-price">{{ price }}</span>
+        </p>
       </div>
     </div>
   </div>
