@@ -34,4 +34,10 @@ describe('CartItem', () => {
 
     expect(image.exists()).toBe(true);
   });
+
+  it('renders product name', () => {
+    const name = wrapper.find('[data-test="product-name"]');
+
+    expect(name.exists()).toBe(true);
+  });
 });
