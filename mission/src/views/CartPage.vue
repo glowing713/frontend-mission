@@ -17,6 +17,17 @@
           @delete-item="removeItem"
         />
       </div>
+      <div class="total-price-container">
+        <div class="total-price">
+          <span>총 상품금액</span><span>{{ totalPrice }}원</span>
+        </div>
+        <div class="total-discount">
+          <span>상품할인</span><span>{{ totalDiscount }}원</span>
+        </div>
+        <div class="shipping-price">
+          <span>배송비</span><span>전상품 무료배송</span>
+        </div>
+      </div>
       <content-footer :total-price="totalPrice" />
     </div>
   </div>
@@ -50,6 +61,12 @@ export default {
     },
     totalPrice() {
       return this.cartItems.reduce((acc, curr) => acc + curr.price, 0);
+    },
+    totalDiscount() {
+      return this.cartItems.reduce(
+        (acc, curr) => acc + (curr.original_price - curr.price),
+        0,
+      );
     },
   },
   methods: {
