@@ -20,18 +20,18 @@
       <div class="total-price-container">
         <div class="total-price">
           <span class="price-label">총 상품금액</span
-          ><span class="price">{{ totalPrice }}원</span>
+          ><span class="price">{{ totalPriceFmted }}원</span>
         </div>
         <div class="total-discount">
           <span class="price-label">상품할인</span
-          ><span class="price">{{ totalDiscount }}원</span>
+          ><span class="price">{{ totalDiscountFmted }}원</span>
         </div>
         <div class="shipping-price">
           <span class="price-label">배송비</span
           ><span class="price">전상품 무료배송</span>
         </div>
       </div>
-      <content-footer :total-price="totalPrice" />
+      <content-footer :total-price="totalPriceFmted" />
     </div>
   </div>
 </template>
@@ -62,14 +62,14 @@ export default {
     cartItemCount() {
       return this.cartItems.length;
     },
-    totalPrice() {
-      return this.cartItems.reduce((acc, curr) => acc + curr.price, 0);
+    totalPriceFmted() {
+      return this.cartItems.reduce((acc, curr) => acc + curr.price, 0).toLocaleString();
     },
-    totalDiscount() {
+    totalDiscountFmted() {
       return this.cartItems.reduce(
         (acc, curr) => acc + (curr.original_price - curr.price),
         0,
-      );
+      ).toLocaleString();
     },
   },
   methods: {
