@@ -15,9 +15,9 @@
             class="original-price"
             data-test="original-price"
             v-if="isOnSale"
-            >{{ originalPrice }}</span
+            >{{ originalPriceFmted }}원</span
           >
-          <span class="final-price" data-test="final-price">{{ price }}</span>
+          <span class="final-price" data-test="final-price">{{ priceFmted }}원</span>
         </p>
       </div>
     </div>
@@ -41,6 +41,12 @@ export default {
   computed: {
     isOnSale() {
       return !(this.price === this.originalPrice);
+    },
+    priceFmted() {
+      return this.price.toLocaleString();
+    },
+    originalPriceFmted() {
+      return this.originalPrice.toLocaleString();
     },
   },
   methods: {
