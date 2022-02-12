@@ -25,4 +25,10 @@ describe('CartPage', () => {
 
     expect(sticky.exists()).toBe(true);
   });
+
+  it('renders sticky footer', () => {
+    const footer = wrapper.find('[data-test="cart-sticky-footer"]');
+
+    expect(footer.exists()).toBe(true);
+  });
 });
