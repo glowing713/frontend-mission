@@ -14,6 +14,7 @@
           :price="item.price"
           :original-price="item.original_price"
           :description="item.description"
+          @delete-item="removeItem"
         />
       </div>
       <content-footer />
