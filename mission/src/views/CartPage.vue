@@ -19,13 +19,16 @@
       </div>
       <div class="total-price-container">
         <div class="total-price">
-          <span>총 상품금액</span><span>{{ totalPrice }}원</span>
+          <span class="price-label">총 상품금액</span
+          ><span class="price">{{ totalPrice }}원</span>
         </div>
         <div class="total-discount">
-          <span>상품할인</span><span>{{ totalDiscount }}원</span>
+          <span class="price-label">상품할인</span
+          ><span class="price">{{ totalDiscount }}원</span>
         </div>
         <div class="shipping-price">
-          <span>배송비</span><span>전상품 무료배송</span>
+          <span class="price-label">배송비</span
+          ><span class="price">전상품 무료배송</span>
         </div>
       </div>
       <content-footer :total-price="totalPrice" />
@@ -95,7 +98,8 @@ p {
 
 .cart-page {
   height: 100%;
-  background-color: #e7e7e7;
+  background-color: #e6e6e6;
+  padding-bottom: 97px;
 }
 
 .cart-contents {
@@ -105,8 +109,10 @@ p {
 }
 
 .cart-products {
-  margin-top: 7px;
+  margin: 7px 0;
   background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .cart-products .title {
@@ -116,5 +122,25 @@ p {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.total-price-container {
+  background-color: white;
+}
+
+.total-price-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 15px;
+  color: #777;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 500;
 }
 </style>
