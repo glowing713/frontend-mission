@@ -2,7 +2,7 @@
   <div class="cart-page" data-test="cart-page">
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
-      <content-header :checked="checked" :total-cnt="cartItems.length" />
+      <content-header :checked="checked" :total-cnt="cartItemCount" />
       <div class="cart-products" data-test="cart-product-container">
         <p class="title">배송상품</p>
         <cart-item
@@ -44,6 +44,9 @@ export default {
   computed: {
     cartItems() {
       return this.$store.state.cartItems;
+    },
+    cartItemCount() {
+      return this.cartItems.length;
     },
     totalPrice() {
       return this.cartItems.reduce((acc, curr) => acc + curr.price, 0);

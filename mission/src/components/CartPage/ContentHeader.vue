@@ -3,7 +3,7 @@
     <p>
       <input type="checkbox" class="select-all" data-test="select-all" @input="emitUpdateEvent" />
       <label for="select-all"
-        >전체선택 ({{ checked.length }}/{{ totalCnt }})</label
+        >전체선택 ({{ checkedCount }}/{{ totalCnt }})</label
       >
     </p>
     <p>
@@ -18,6 +18,11 @@ export default {
   props: {
     checked: { type: Array, default: () => [] },
     totalCnt: { type: Number, default: 0 },
+  },
+  computed: {
+    checkedCount() {
+      return this.checked.length;
+    },
   },
 };
 </script>
