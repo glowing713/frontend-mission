@@ -17,6 +17,15 @@ export default {
 </script>
 
 <style scoped>
+p {
+  margin: 0;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f1f1f;
+}
+
 .sticky-header {
   height: 27px;
   padding: 15px 25px 15px 25px;
