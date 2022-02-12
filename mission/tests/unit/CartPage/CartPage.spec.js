@@ -1,11 +1,26 @@
 import { mount } from '@vue/test-utils';
 import CartPage from '@/views/CartPage.vue';
 
+const $store = {
+  state: {
+    cartItems: [],
+  },
+  commit: jest.fn(),
+};
+
 describe('CartPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(CartPage);
+    $store.commit.mockClear();
+
+    wrapper = mount(CartPage, {
+      global: {
+        mocks: {
+          $store,
+        },
+      },
+    });
   });
 
   it('renders header item', () => {
@@ -30,5 +45,32 @@ describe('CartPage', () => {
     const footer = wrapper.find('[data-test="cart-sticky-footer"]');
 
     expect(footer.exists()).toBe(true);
+  });
+
+  it('renders product container', () => {
+    const products = wrapper.find('[data-test="cart-product-container"]');
+
+    expect(products.exists()).toBe(true);
+  });
+});
+
+describe('store test', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    $store.commit.mockClear();
+
+    wrapper = mount(CartPage, {
+      global: {
+        mocks: {
+          $store,
+        },
+      },
+    });
+  });
+
+  it('commits setCartItems mutation on created hook', () => {
+    expect($store.commit).toHaveBeenCalled();
+    expect($store.commit).toHaveBeenCalledWith('setCartItems');
   });
 });
