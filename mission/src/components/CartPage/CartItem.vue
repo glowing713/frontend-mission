@@ -3,6 +3,12 @@
     <p>
       <input type="checkbox" class="purchase-check" />
     </p>
+    <div class="item-info">
+      <img :src="image" :alt="description" data-test="product-image" />
+      <div class="text-info">
+        <p data-test="product-name">{{ name }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
