@@ -1,5 +1,7 @@
 <template>
-  <div class="cart-item-container" data-test="cart-item"></div>
+  <div class="cart-item-container" data-test="cart-item">
+      <input type="checkbox" class="purchase-check">
+  </div>
 </template>
 
 <script>
