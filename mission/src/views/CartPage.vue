@@ -2,7 +2,7 @@
   <div class="cart-page" data-test="cart-page">
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
-      <content-header />
+      <content-header :checked="checked" :totalCnt="cartItems.length" />
       <div class="cart-products" data-test="cart-product-container">
         <p class="title">배송상품</p>
         <cart-item
@@ -35,6 +35,11 @@ export default {
     ContentHeader,
     ContentFooter,
     CartItem,
+  },
+  data() {
+    return {
+      checked: [],
+    };
   },
   computed: {
     cartItems() {

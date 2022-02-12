@@ -1,8 +1,10 @@
 <template>
   <div class="sticky-header" data-test="cart-sticky-header">
     <p>
-      <input type="checkbox" class="select-all" data-test="select-all" />
-      <label for="select-all">전체선택 (2/2)</label>
+      <input type="checkbox" class="select-all" data-test="select-all" @input="emitUpdateEvent" />
+      <label for="select-all"
+        >전체선택 ({{ checked.length }}/{{ totalCnt }})</label
+      >
     </p>
     <p>
       <button class="delete-items" data-test="delete-items">선택삭제</button>
@@ -13,6 +15,10 @@
 <script>
 export default {
   name: 'ContentHeader',
+  props: {
+    checked: { type: Array, default: () => [] },
+    totalCnt: { type: Number, default: 0 },
+  },
 };
 </script>
 
