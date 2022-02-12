@@ -24,4 +24,10 @@ describe('CartItem', () => {
 
     expect(container.exists()).toBe(true);
   });
+
+  it('renders checkbox', () => {
+    const checkbox = wrapper.find('input[type="checkbox"]');
+
+    expect(checkbox.exists()).toBe(true);
+  });
 });
