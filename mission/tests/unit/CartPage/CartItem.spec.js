@@ -40,4 +40,10 @@ describe('CartItem', () => {
 
     expect(name.exists()).toBe(true);
   });
+
+  it('renders product description', () => {
+    const description = wrapper.find('[data-test="product-description"]');
+
+    expect(description.exists()).toBe(true);
+  });
 });
