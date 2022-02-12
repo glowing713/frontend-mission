@@ -52,4 +52,10 @@ describe('CartItem', () => {
 
     expect(price.exists()).toBe(true);
   });
+
+  it('should not render original price if not on sale', async () => {
+    await wrapper.setProps({ price: 10000, originalPrice: 10000 });
+
+    expect(wrapper.find('[data-test="original-price"]').exists()).toBe(false);
+  });
 });
