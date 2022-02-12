@@ -34,6 +34,9 @@ p {
     display: flex;
     justify-content: center;
     align-content: space-around;
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
 .back-button {
