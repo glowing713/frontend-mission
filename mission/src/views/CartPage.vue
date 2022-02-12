@@ -3,6 +3,7 @@
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
       <content-header />
+      <div class="cart-products" data-test="cart-product-container"></div>
       <content-footer />
     </div>
   </div>
@@ -16,6 +17,22 @@ import ContentFooter from '@/components/CartPage/ContentFooter.vue';
 export default {
   name: 'CartPage',
   components: { CartHeader, ContentHeader, ContentFooter },
+  computed: {
+    cartItems() {
+      return this.$store.state.cartItems;
+    },
+  },
+  methods: {
+    removeItem(id) {
+      this.$store.commit('delCartItem', id);
+    },
+    setItems() {
+      this.$store.commit('setCartItems');
+    },
+  },
+  created() {
+    this.setItems(); // 가상 데이터를 state.cartItems에 할당
+  },
 };
 </script>
 

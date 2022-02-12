@@ -1,0 +1,42 @@
+export default [
+  {
+    product_no: 'agfg121',
+    name: '유니클로',
+    image: 'https://simage-kr.uniqlo.com/goods/31/14/21/79/445595_COL_COL00_1000.jpg',
+    price: 19900,
+    original_price: 19900,
+    description: 'Keith Haring UT(그래픽T-반팔)A',
+  },
+  {
+    product_no: 'bsdr247',
+    name: 'Nike',
+    image: 'https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/DA0330-063/1752b57f-f3d7-4a1e-a340-6e81fb48da66_primary.jpg',
+    price: 109000,
+    original_price: 109000,
+    description: 'NikeLab 솔로 스우시',
+  },
+  {
+    product_no: 'nrkw833',
+    name: '밀로',
+    image: 'https://static-breeze.nike.co.kr/kr/ko_kr/cmsstatic/product/DA0330-063/1752b57f-f3d7-4a1e-a340-6e81fb48da66_primary.jpg',
+    price: 39000,
+    original_price: 44000,
+    description: '홀리데이 시그니처 볼 캡 [그린]',
+  },
+  {
+    product_no: 'wofi034',
+    name: '언리미트',
+    image: 'https://img.29cm.co.kr/next-product/2021/08/20/9d54c4aeb06d49328f86cf68f79606f9_20210820165149.jpg?width=700',
+    price: 52000,
+    original_price: 132000,
+    description: 'Pulsation Crewneck (U21DTTS52)',
+  },
+  {
+    product_no: 'ropc245',
+    name: '온츠',
+    image: 'https://img.29cm.co.kr/next-product/2022/01/07/a4874c24d3ea4952a60909d1dfd6a6cd_20220107185941.jpg?width=700',
+    price: 69000,
+    original_price: 114000,
+    description: '북극사 소프트코지 니트 (5color)',
+  },
+];
