@@ -11,9 +11,12 @@
           {{ description }}
         </p>
         <p class="product-price" data-test="product-price">
-          <span class="original-price" data-test="original-price">{{
-            originalPrice
-          }}</span>
+          <span
+            class="original-price"
+            data-test="original-price"
+            v-if="isOnSale"
+            >{{ originalPrice }}</span
+          >
           <span class="final-price" data-test="final-price">{{ price }}</span>
         </p>
       </div>
@@ -31,6 +34,11 @@ export default {
     price: { type: Number, default: 0 },
     originalPrice: { type: Number, default: 0 },
     description: { type: String, default: '' },
+  },
+  computed: {
+    isOnSale() {
+      return !(this.price === this.originalPrice);
+    },
   },
 };
 </script>
