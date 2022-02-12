@@ -7,6 +7,7 @@
       <img :src="image" :alt="description" data-test="product-image" />
       <div class="text-info">
         <p data-test="product-name">{{ name }}</p>
+        <p data-test="product-description">{{ description }}</p>
       </div>
     </div>
   </div>
