@@ -46,4 +46,10 @@ describe('CartItem', () => {
 
     expect(description.exists()).toBe(true);
   });
+
+  it('renders product price', () => {
+    const price = wrapper.find('[data-test="product-price"]');
+
+    expect(price.exists()).toBe(true);
+  });
 });
