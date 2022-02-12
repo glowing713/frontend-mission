@@ -21,6 +21,9 @@
         </p>
       </div>
     </div>
+    <p @click="emitDeleteItem">
+      <i :class="['fas', 'fa-ban']" data-test="delete-button"></i>
+    </p>
   </div>
 </template>
 
@@ -38,6 +41,11 @@ export default {
   computed: {
     isOnSale() {
       return !(this.price === this.originalPrice);
+    },
+  },
+  methods: {
+    emitDeleteItem() {
+      this.$emit('deleteItem', this.productNo);
     },
   },
 };
