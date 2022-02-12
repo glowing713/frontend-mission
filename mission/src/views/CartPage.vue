@@ -3,7 +3,9 @@
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
       <content-header />
-      <div class="cart-products" data-test="cart-product-container"></div>
+      <div class="cart-products" data-test="cart-product-container">
+        <p class="title">배송상품</p>
+      </div>
       <content-footer />
     </div>
   </div>
@@ -55,5 +57,19 @@ p {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.cart-products {
+  margin-top: 7px;
+  background-color: white;
+}
+
+.cart-products .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0 15px 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 </style>
