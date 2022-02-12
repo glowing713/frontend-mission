@@ -1,7 +1,7 @@
 <template>
   <div class="sticky-footer" data-test="cart-sticky-footer">
     <button class="order-btn" data-test="order-button">
-      35,300원 주문하기
+      {{ totalPriceFmted }}원 주문하기
     </button>
   </div>
 </template>
@@ -9,6 +9,14 @@
 <script>
 export default {
   name: 'ContentFooter',
+  props: {
+    totalPrice: { type: Number, default: 0 },
+  },
+  computed: {
+    totalPriceFmted() {
+      return this.totalPrice.toLocaleString();
+    },
+  },
 };
 </script>
 
