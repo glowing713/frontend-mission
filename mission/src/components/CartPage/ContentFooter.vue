@@ -1,6 +1,6 @@
 <template>
   <div class="sticky-footer" data-test="cart-sticky-footer">
-    <button class="order-btn" data-test="order-button">
+    <button @click="goToOrder" class="order-btn" data-test="order-button">
       {{ totalPrice }}원 주문하기
     </button>
   </div>
@@ -10,7 +10,21 @@
 export default {
   name: 'ContentFooter',
   props: {
+    productName: { type: String, default: '' },
+    orderCount: { type: Number, default: 0 },
     totalPrice: { type: String, default: '' },
+  },
+  methods: {
+    goToOrder() {
+      this.$router.push({
+        name: 'CartOrder',
+        params: {
+          productName: this.productName,
+          orderCount: this.orderCount,
+          totalPrice: this.totalPrice,
+        },
+      });
+    },
   },
 };
 </script>

@@ -31,7 +31,11 @@
           ><span class="price">전상품 무료배송</span>
         </div>
       </div>
-      <content-footer :total-price="totalPriceFmted" />
+      <content-footer
+        :product-name="cartItems[0].description"
+        :order-count="cartItems.length"
+        :total-price="totalPriceFmted"
+      />
     </div>
   </div>
 </template>
@@ -63,13 +67,14 @@ export default {
       return this.cartItems.length;
     },
     totalPriceFmted() {
-      return this.cartItems.reduce((acc, curr) => acc + curr.price, 0).toLocaleString();
+      return this.cartItems
+        .reduce((acc, curr) => acc + curr.price, 0)
+        .toLocaleString();
     },
     totalDiscountFmted() {
-      return this.cartItems.reduce(
-        (acc, curr) => acc + (curr.original_price - curr.price),
-        0,
-      ).toLocaleString();
+      return this.cartItems
+        .reduce((acc, curr) => acc + (curr.original_price - curr.price), 0)
+        .toLocaleString();
     },
   },
   methods: {
