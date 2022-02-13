@@ -32,8 +32,8 @@
         </div>
       </div>
       <content-footer
-        :product-name="cartItems[0].description"
-        :order-count="cartItems.length"
+        :product-name="getFirstItemDescription"
+        :order-count="cartItemCount"
         :total-price="totalPriceFmted"
       />
     </div>
@@ -75,6 +75,9 @@ export default {
       return this.cartItems
         .reduce((acc, curr) => acc + (curr.original_price - curr.price), 0)
         .toLocaleString();
+    },
+    getFirstItemDescription() {
+      return this.cartItems[0].description;
     },
   },
   methods: {
