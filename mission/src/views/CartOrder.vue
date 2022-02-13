@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="order-btn">
-      <button>주문하기</button>
+      <button @click="orderComplete">주문하기</button>
     </div>
   </div>
 </template>
@@ -35,6 +35,11 @@ export default {
     },
     getTotalPrice() {
       return this.$route.params.totalPrice;
+    },
+  },
+  methods: {
+    orderComplete() {
+      this.$router.push({ name: 'OrderComplete' });
     },
   },
 };
