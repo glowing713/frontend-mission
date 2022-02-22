@@ -23,7 +23,7 @@
         </p>
       </div>
     </div>
-    <p class="delete-btn-container" @click="emitDeleteItem">
+    <p class="delete-btn-container" @click="removeItem">
       <i :class="['fas', 'fa-ban']" data-test="delete-button"></i>
     </p>
   </div>
@@ -52,8 +52,8 @@ export default {
     },
   },
   methods: {
-    emitDeleteItem() {
-      this.$emit('deleteItem', this.productNo);
+    removeItem() {
+      this.$store.commit('delCartItem', this.productNo);
     },
   },
 };

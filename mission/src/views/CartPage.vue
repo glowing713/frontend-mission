@@ -14,7 +14,6 @@
           :price="item.price"
           :original-price="item.original_price"
           :description="item.description"
-          @delete-item="removeItem"
         />
       </div>
       <div class="total-price-container">
@@ -81,9 +80,6 @@ export default {
     },
   },
   methods: {
-    removeItem(id) {
-      this.$store.commit('delCartItem', id);
-    },
     setItems() {
       this.$store.commit('setCartItems');
     },
