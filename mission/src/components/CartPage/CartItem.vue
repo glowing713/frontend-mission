@@ -1,7 +1,7 @@
 <template>
   <div class="cart-item-container" data-test="cart-item">
     <p class="checkbox-container">
-      <input type="checkbox" class="purchase-check" />
+      <input type="checkbox" class="purchase-check" :checked="isChecked" @change="updateInput" />
     </p>
     <div class="item-info">
       <img :src="image" :alt="description" data-test="product-image" />
@@ -41,6 +41,7 @@ export default {
     price: { type: Number, default: 0 },
     originalPrice: { type: Number, default: 0 },
     description: { type: String, default: '' },
+    modelValue: { type: Array, default: () => [] },
   },
   computed: {
     isOnSale() {
@@ -52,9 +53,25 @@ export default {
     originalPriceFmted() {
       return this.originalPrice.toLocaleString();
     },
+    isChecked() {
+      // prop으로 전달받은 modelValue(현재 체크되어있는 상품목록)에 해당 상품이 포함되어있는지 체크한다.
+      return this.modelValue.includes(this.productNo);
+    },
   },
   methods: {
     ...mapMutations(['delCartItem']),
+    updateInput(e) {
+      const { checked } = e.target;
+      const newCheckedList = [...this.modelValue];
+
+      if (checked) { // 체크가 되면 해당 상품번호를 추가한다.
+        newCheckedList.push(this.productNo);
+      } else { // 체크가 해제되면 해당 상품번호를 찾아서 제거한다.
+        newCheckedList.splice(newCheckedList.indexOf(this.productNo), 1);
+      }
+
+      this.$emit('update:model-value', newCheckedList);
+    },
   },
 };
 </script>

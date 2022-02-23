@@ -6,6 +6,7 @@
       <div class="cart-products" data-test="cart-product-container">
         <p class="title">배송상품</p>
         <cart-item
+          v-model="checked"
           v-for="item in cartItems"
           :key="item.product_no"
           :product-no="item.product_no"
