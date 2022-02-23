@@ -1,7 +1,12 @@
 <template>
   <div class="cart-item-container" data-test="cart-item">
     <p class="checkbox-container">
-      <input type="checkbox" class="purchase-check" :checked="isChecked" @change="updateInput" />
+      <input
+        type="checkbox"
+        class="purchase-check"
+        :checked="isChecked"
+        @change="updateInput"
+      />
     </p>
     <div class="item-info">
       <img :src="image" :alt="description" data-test="product-image" />
@@ -64,9 +69,11 @@ export default {
       const { checked } = e.target;
       const newCheckedList = [...this.modelValue];
 
-      if (checked) { // 체크가 되면 해당 상품번호를 추가한다.
+      if (checked) {
+        // 체크가 되면 해당 상품번호를 추가한다.
         newCheckedList.push(this.productNo);
-      } else { // 체크가 해제되면 해당 상품번호를 찾아서 제거한다.
+      } else {
+        // 체크가 해제되면 해당 상품번호를 찾아서 제거한다.
         newCheckedList.splice(newCheckedList.indexOf(this.productNo), 1);
       }
 
