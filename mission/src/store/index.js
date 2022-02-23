@@ -5,6 +5,11 @@ export default createStore({
   state: {
     cartItems: [],
   },
+  getters: {
+    cartItemCount(state) {
+      return state.cartItems.length;
+    },
+  },
   mutations: {
     setCartItems(state) {
       state.cartItems = items;

@@ -23,13 +23,15 @@
         </p>
       </div>
     </div>
-    <p class="delete-btn-container" @click="removeItem">
+    <p class="delete-btn-container" @click="delCartItem(productNo)">
       <i :class="['fas', 'fa-ban']" data-test="delete-button"></i>
     </p>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'CartItem',
   props: {
@@ -52,9 +54,7 @@ export default {
     },
   },
   methods: {
-    removeItem() {
-      this.$store.commit('delCartItem', this.productNo);
-    },
+    ...mapMutations(['delCartItem']),
   },
 };
 </script>

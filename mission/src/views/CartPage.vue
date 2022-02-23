@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations, mapState } from 'vuex';
 import CartHeader from '@/components/CartPage/CartHeader.vue';
 import ContentHeader from '@/components/CartPage/ContentHeader.vue';
 import ContentFooter from '@/components/CartPage/ContentFooter.vue';
@@ -59,12 +60,8 @@ export default {
     };
   },
   computed: {
-    cartItems() {
-      return this.$store.state.cartItems;
-    },
-    cartItemCount() {
-      return this.cartItems.length;
-    },
+    ...mapState(['cartItems']),
+    ...mapGetters(['cartItemCount']),
     totalPriceFmted() {
       return this.cartItems
         .reduce((acc, curr) => acc + curr.price, 0)
@@ -80,12 +77,10 @@ export default {
     },
   },
   methods: {
-    setItems() {
-      this.$store.commit('setCartItems');
-    },
+    ...mapMutations(['setCartItems']),
   },
   created() {
-    this.setItems(); // 가상 데이터를 state.cartItems에 할당
+    this.setCartItems(); // 가상 데이터를 state.cartItems에 할당
   },
 };
 </script>
