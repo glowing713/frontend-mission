@@ -2,7 +2,7 @@
   <div class="cart-page" data-test="cart-page">
     <cart-header />
     <div class="cart-contents" data-test="cart-content-container">
-      <content-header :checked="checked" :total-cnt="cartItemCount" />
+      <content-header v-model="totalCheck" :total-cnt="cartItemCount" />
       <div class="cart-products" data-test="cart-product-container">
         <p class="title">배송상품</p>
         <cart-item
@@ -58,11 +58,12 @@ export default {
   data() {
     return {
       checked: [],
+      totalCheck: false,
     };
   },
   computed: {
     ...mapState(['cartItems']),
-    ...mapGetters(['cartItemCount']),
+    ...mapGetters(['cartItemCount', 'checkedItems']),
     totalPriceFmted() {
       return this.cartItems
         .reduce((acc, curr) => acc + curr.price, 0)
@@ -80,8 +81,20 @@ export default {
   methods: {
     ...mapMutations(['setCartItems']),
   },
+  watch: {
+    totalCheck() {
+      if (this.totalCheck) {
+        this.checked = this.cartItems.map((item) => item.product_no);
+      } else {
+        this.checked = [];
+      }
+    },
+  },
   created() {
     this.setCartItems(); // 가상 데이터를 state.cartItems에 할당
+  },
+  updated() {
+    console.log(this.checked);
   },
 };
 </script>

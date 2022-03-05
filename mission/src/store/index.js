@@ -9,6 +9,7 @@ export default createStore({
     cartItemCount(state) {
       return state.cartItems.length;
     },
+    checkedItems: (state) => (check) => state.cartItems.filter((e) => check.includes(e.product_no)),
   },
   mutations: {
     setCartItems(state) {

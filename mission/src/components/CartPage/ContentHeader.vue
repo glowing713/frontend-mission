@@ -1,7 +1,13 @@
 <template>
   <div class="sticky-header" data-test="cart-sticky-header">
     <p>
-      <input type="checkbox" class="select-all" data-test="select-all" @input="emitUpdateEvent" />
+      <input
+        type="checkbox"
+        class="select-all"
+        data-test="select-all"
+        :checked="modelValue"
+        @change="onChange"
+      />
       <label for="select-all"
         >전체선택 ({{ checkedCount }}/{{ totalCnt }})</label
       >
@@ -18,10 +24,16 @@ export default {
   props: {
     checked: { type: Array, default: () => [] },
     totalCnt: { type: Number, default: 0 },
+    modelValue: { type: Boolean, default: false },
   },
   computed: {
     checkedCount() {
       return this.checked.length;
+    },
+  },
+  methods: {
+    onChange() {
+      this.$emit('update:model-value', !this.modelValue);
     },
   },
 };

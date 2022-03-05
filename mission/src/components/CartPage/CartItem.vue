@@ -28,7 +28,7 @@
         </p>
       </div>
     </div>
-    <p class="delete-btn-container" @click="delCartItem(productNo)">
+    <p class="delete-btn-container" @click="onDelBtnClick">
       <i :class="['fas', 'fa-ban']" data-test="delete-button"></i>
     </p>
   </div>
@@ -75,6 +75,17 @@ export default {
       } else {
         // 체크가 해제되면 해당 상품번호를 찾아서 제거한다.
         newCheckedList.splice(newCheckedList.indexOf(this.productNo), 1);
+      }
+
+      this.$emit('update:model-value', newCheckedList);
+    },
+    onDelBtnClick() {
+      this.delCartItem(this.productNo);
+      const newCheckedList = [...this.modelValue];
+      const findNowItem = newCheckedList.indexOf(this.productNo);
+
+      if (findNowItem !== -1) {
+        newCheckedList.splice(findNowItem, 1);
       }
 
       this.$emit('update:model-value', newCheckedList);
