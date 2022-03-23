@@ -1,11 +1,21 @@
 <template>
   <nav data-test="nav-container" class="nav-container">
     <ul>
-      <li><i :class="['fas', 'fa-home']" /></li>
-      <li><i :class="['fas', 'fa-search']" /></li>
-      <li><i :class="['fas', 'fa-shopping-cart']" /></li>
-      <li><i :class="['fas', 'fa-heart']" /></li>
-      <li><i :class="['fas', 'fa-user']" /></li>
+      <router-link to="/"
+        ><li><i :class="['fas', 'fa-home']" /></li
+      ></router-link>
+      <router-link to="/"
+        ><li><i :class="['fas', 'fa-search']" /></li
+      ></router-link>
+      <router-link to="/cart" data-test="cart-link"
+        ><li><i :class="['fas', 'fa-shopping-cart']" /></li
+      ></router-link>
+      <router-link to="/"
+        ><li><i :class="['fas', 'fa-heart']" /></li
+      ></router-link>
+      <router-link to="/"
+        ><li><i :class="['fas', 'fa-user']" /></li
+      ></router-link>
     </ul>
   </nav>
 </template>
@@ -41,11 +51,12 @@ li {
   flex-flow: row nowrap;
 }
 
-.nav-container li {
+.nav-container a {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 22px;
+  text-decoration: none;
 }
 </style>

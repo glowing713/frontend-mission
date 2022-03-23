@@ -1,0 +1,159 @@
+<template>
+  <div class="cart-page" data-test="cart-page">
+    <cart-header />
+    <div class="cart-contents" data-test="cart-content-container">
+      <content-header v-model="totalCheck" :total-cnt="cartItemCount" />
+      <div class="cart-products" data-test="cart-product-container">
+        <p class="title">배송상품</p>
+        <cart-item
+          v-model="checked"
+          v-for="item in cartItems"
+          :key="item.product_no"
+          :product-no="item.product_no"
+          :name="item.name"
+          :image="item.image"
+          :price="item.price"
+          :original-price="item.original_price"
+          :description="item.description"
+        />
+      </div>
+      <div class="total-price-container">
+        <div class="total-price">
+          <span class="price-label">총 상품금액</span
+          ><span class="price">{{ totalPriceFmted }}원</span>
+        </div>
+        <div class="total-discount">
+          <span class="price-label">상품할인</span
+          ><span class="price">{{ totalDiscountFmted }}원</span>
+        </div>
+        <div class="shipping-price">
+          <span class="price-label">배송비</span
+          ><span class="price">전상품 무료배송</span>
+        </div>
+      </div>
+      <content-footer
+        :product-name="getFirstItemDescription"
+        :order-count="cartItemCount"
+        :total-price="totalPriceFmted"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapGetters, mapMutations, mapState } from 'vuex';
+import CartHeader from '@/components/CartPage/CartHeader.vue';
+import ContentHeader from '@/components/CartPage/ContentHeader.vue';
+import ContentFooter from '@/components/CartPage/ContentFooter.vue';
+import CartItem from '@/components/CartPage/CartItem.vue';
+
+export default {
+  name: 'CartPage',
+  components: {
+    CartHeader,
+    ContentHeader,
+    ContentFooter,
+    CartItem,
+  },
+  data() {
+    return {
+      checked: [],
+      totalCheck: false,
+    };
+  },
+  computed: {
+    ...mapState(['cartItems']),
+    ...mapGetters(['cartItemCount', 'checkedItems']),
+    totalPriceFmted() {
+      return this.cartItems
+        .reduce((acc, curr) => acc + curr.price, 0)
+        .toLocaleString();
+    },
+    totalDiscountFmted() {
+      return this.cartItems
+        .reduce((acc, curr) => acc + (curr.original_price - curr.price), 0)
+        .toLocaleString();
+    },
+    getFirstItemDescription() {
+      return this.cartItems[0].description;
+    },
+  },
+  methods: {
+    ...mapMutations(['setCartItems']),
+  },
+  watch: {
+    totalCheck() {
+      if (this.totalCheck) {
+        this.checked = this.cartItems.map((item) => item.product_no);
+      } else {
+        this.checked = [];
+      }
+    },
+  },
+  created() {
+    this.setCartItems(); // 가상 데이터를 state.cartItems에 할당
+  },
+  updated() {
+    console.log(this.checked);
+  },
+};
+</script>
+
+<style scoped>
+p {
+  margin: 0;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f1f1f;
+}
+
+.cart-page {
+  height: 100%;
+  background-color: #e6e6e6;
+  padding-bottom: 97px;
+}
+
+.cart-contents {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-products {
+  margin: 7px 0;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cart-products .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0 15px 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.total-price-container {
+  background-color: white;
+}
+
+.total-price-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 15px;
+  color: #777;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 500;
+}
+</style>

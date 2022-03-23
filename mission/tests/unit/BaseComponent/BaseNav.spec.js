@@ -1,11 +1,17 @@
-import { mount } from '@vue/test-utils';
+import { mount, flushPromises } from '@vue/test-utils';
 import BaseNav from '@/components/BaseComponent/BaseNav.vue';
+import App from '@/App.vue';
+import router from '@/router';
 
 describe('BaseNav', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(BaseNav);
+    wrapper = mount(BaseNav, {
+      global: {
+        plugins: [router],
+      },
+    });
   });
 
   it('renders nav container', () => {
@@ -32,5 +38,30 @@ describe('BaseNav', () => {
     const lists = ul.findAll('li');
 
     lists.forEach((li) => expect(li.find('i').exists()).toBe(true));
+  });
+});
+
+describe('routing test', () => {
+  let wrapper;
+
+  beforeEach(async () => {
+    router.push('/');
+    await router.isReady();
+
+    wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    });
+
+    await flushPromises();
+  });
+
+  it('redirects to cart page when the link is clicked', async () => {
+    const cartButton = wrapper.find('[data-test="cart-link"]');
+    await cartButton.trigger('click');
+    await flushPromises();
+
+    expect(wrapper.find('[data-test="cart-page"]').exists()).toBe(true);
   });
 });
